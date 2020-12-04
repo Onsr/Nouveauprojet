@@ -1,0 +1,37 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+<div class="fos_user_user_show">
+<div class="container">
+    <div class="col-md-10 col-md-offset-2">
+      <strong><em><h1 class="text-center text-blue">Profil de {{ user.username }}: </h1></em></strong>
+        <div class="well">
+<div class="row">
+      <div class="form-group">
+    <p>{{ 'profile.show.username'|trans }}: {{ user.username }}</p>
+    </div>
+       
+
+    <div class="form-group">
+    <p>{{ 'profile.show.email'|trans }}: {{ user.email }}</p>
+    </div>
+          <div class="form-group">
+    <p>{{ 'Adresse' }}: {{ user.adresse }}</p>
+    </div>
+          <div class="form-group">
+    <p>{{ 'Mobile' }}: {{ user.mobile }}</p>
+    </div>
+     <div class="form-group">
+    <p>{{ 'Date De Naissance' }}: {{ user.datedenaissance|date('d-M-Y') }}</p>
+    </div>
+          <div class="form-group">
+    <p>{{ 'Sexe' }}: {{ user.sexe }}</p>
+    </div>
+    
+    </div>
+    </div>
+     
+    <a href="{{ path('fos_user_profile_edit') }}" 
+    class="btn btn-info pull-center">Update</a></td>
+  </div>
+</div>
+</div>

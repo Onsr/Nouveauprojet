@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+{% block fos_user_content %}
+    <h1>Afficher Utilisateur</h1>
+    <div class="container">
+    <div class="col-md-10 col-md-offset-2">
+      <strong><em><h1 class="h1 pull-center text-blue">Profil de {{ user.username }}: </h1></em></strong>
+        <div class="well">
+<div class="box-body">
+                        <table class="table table-bordered">
+                            <tbody>
+                            <tr>
+                                <th>Id</th>
+                                <td>{{ user.id }}</td>
+                            </tr>
+                            <tr>
+                                <th>Nom d'utilisateur</th>
+                                <td>{{ user.username }}</td>
+                            </tr>
+                            <tr>
+                                <th>Email</th>
+                                <td>{{ user.email }}</td>
+                            </tr>
+                            <tr>
+                                <th>Role</th>
+                                <td>{% for role in user.roles %}
+                                {{ role }},
+                                {% endfor %}</td>
+                            </tr>
+                            <tr>
+                                <th>Mobile</th>
+                                <td>{{ user.mobile }}</td>
+                            </tr>
+                            <tr>
+                                <th>Adresse</th>
+                                <td>{{ user.adresse }}</td>
+                            </tr>
+                            <tr>
+                                <th>Sexes</th>
+                                <td>{{ user.sexe }}</td>
+                            </tr>
+                            <tr>
+                                <th>Date de naissance</th>
+                                <td>{{ user.datedenaissance|date('d-M-Y') }}</td>
+                            </tr>
+                           
+                            </tbody>
+                        </table>
+                        <div class="row">
+    {{ form_start(delete_form) }}
+    {{ form_widget(delete_form) }}
+    <button type="submit" class="pull-right btn  btn-danger btn-sm"> <i class="fa fa-trash-o">
+                                </i> Supprimer
+                            </button>
+    {{ form_end(delete_form) }}
+</div>
+</div>
+</div>
+
+    <ul>
+        <li>
+            <a href="{{ path('pm_compte') }}">Back to the list</a>
+        </li>
+
+    </ul>
+    </div>
+
+{% endblock %}

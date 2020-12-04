@@ -1,0 +1,24 @@
+pharmacie_show:
+    path:     /{id}/show
+    defaults: { _controller: "ProjetBundle:Pharmacie:show" }
+    methods:  GET
+
+pharmacie_new:
+    path:     /new
+    defaults: { _controller: "ProjetBundle:Pharmacie:new" }
+    methods:  [GET, POST]
+
+pharmacie_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "ProjetBundle:Pharmacie:edit" }
+    methods:  [GET, POST]
+
+pharmacie_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "ProjetBundle:Pharmacie:delete" }
+    methods:  DELETE
+
+pharmacie_search:
+    path:     /search
+    defaults: { _controller: "ProjetBundle:Pharmacie:search" }
+    methods:  [GET, POST]

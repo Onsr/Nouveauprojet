@@ -1,0 +1,120 @@
+{% trans_default_domain 'FOSUserBundle' %}
+{% block fos_user_content %}
+ <body class="hold-transition register-page">
+ <div class="container register">
+  <div class="register-logo">
+    <em><strong><h1 class="text-center text-red pt-5"><b>Inscription</h1></strong></em>
+  </div>
+  <div class="well well-lg">
+ <section class="register-form">
+        <div class="row">
+        
+           <div class="col-md-6 col-md-offset-2">
+ {{form_start(form, {'method': 'POST', 'attr':{'class': 'register'}})}}
+  <div class="row">
+    <div class="form-group has-feedback">
+    <h4><i class="glyphicon glyphicon-user text-Navy"> {{ form_label(form.username) }}</i></h4>
+      {{ form_widget(form.username) }}
+    </div>
+    {{ form_errors(form.username) }}
+  </div>
+  <div class="row no-padding">
+    <div class="form-group has-feedback">
+      <h4><i class="glyphicon glyphicon-envelope text-Navy"> {{ form_label(form.email) }}</i></h4>
+      {{ form_widget(form.email) }}
+    </div>
+    {{ form_errors(form.email) }}
+  </div>
+  <div class="row no-padding">
+    <div class="form-group has-feedback">
+      <h4><i class="glyphicon glyphicon-earphone text-Navy"> {{ form_label(form.mobile) }}</i></h4>
+      {{ form_widget(form.mobile) }}
+    </div>
+    {{ form_errors(form.mobile) }}
+  </div>
+  <div class="row no-padding">
+    <div class="form-group has-feedback">
+     <h4><i class="glyphicon glyphicon-ok text-Navy"> {{ form_label(form.sexe) }}</i></h4>
+      {{ form_widget(form.sexe) }}
+    </div>
+    {{ form_errors(form.sexe) }}
+  </div>
+  <div class="row no-padding">
+    <div class="form-group has-feedback">
+     <h4> <i class="glyphicon glyphicon-calendar text-Navy"> {{ form_label(form.date_de_naissance) }}</i></h4>
+      {{ form_widget(form.date_de_naissance) }}
+    </div>
+    {{ form_errors(form.date_de_naissance) }}
+  </div>
+  <div class="row no-padding">
+    <div class="form-group has-feedback">
+     <h4> <i class="glyphicon glyphicon-home text-Navy"> {{ form_label(form.adresse) }}</i></h4>
+      {{ form_widget(form.adresse) }}
+    </div>
+    {{ form_errors(form.adresse) }}
+  </div>
+  <div class="row no-padding">
+    <div class="form-group has-feedback">
+     <h4> <i class="glyphicon glyphicon-home text-Navy"> {{ form_label(form.ville) }}</i></h4>
+      {{ form_widget(form.ville) }}
+    </div>
+    {{ form_errors(form.ville) }}
+  </div>
+  <div class="row no-padding">
+    <div class="form-group has-feedback">
+     <h4> <i class="glyphicon glyphicon-home text-Navy"> {{ form_label(form.gouvernorat) }}</i></h4>
+      {{ form_widget(form.gouvernorat) }}
+    </div>
+    {{ form_errors(form.gouvernorat) }}
+  </div>
+  <div class="row no-padding">
+    <div class="form-group has-feedback">
+     <h4> <i class="glyphicon glyphicon-code text-Navy"> {{ form_label(form.CodePostal) }}</i></h4>
+      {{ form_widget(form.CodePostal) }}
+    </div>
+    {{ form_errors(form.CodePostal) }}
+  </div>
+  <div class="row no-padding">
+    <div class="form-group has-feedback">
+      <h4><i class="glyphicon glyphicon-ok text-Navy"> {{ form_label(form.roles) }}</i></h4>
+      {{ form_widget(form.roles) }}
+    </div>
+    {{ form_errors(form.roles) }}
+  </div>
+  <div class="row no-padding">
+    <div class="form-group has-feedback">
+     <h4> <i class="glyphicon glyphicon-lock text-Navy"> {{ form_label(form.plainPassword.first) }}</i></h4>
+      {{ form_widget(form.plainPassword.first) }}
+    </div>
+    {{ form_errors(form.plainPassword.first) }}
+  </div>
+  <div class="row no-padding">
+    <div class="form-group has-feedback">
+      <h4><i class="glyphicon glyphicon-lock text-Navy"> {{ form_label(form.plainPassword.second) }}</i></h4>
+      {{ form_widget(form.plainPassword.second) }}
+    </div>
+    {{ form_errors(form.plainPassword.second) }}
+  </div>
+  </div>
+  </div>
+
+  <div align="center" class="button-wrap">
+    <button class="btn btn-success pull-center btn-lg" type="submit" name="action">
+      {# {{ 'registration.submit'|trans }} #}
+      <i class="glyphicon glyphicon-send"></i>
+    </button>
+ <button class="btn btn-danger pull-center btn-lg" type="reset" name="action">
+           {# Annuler #}
+           <i class="glyphicon glyphicon-trash"></i>
+        </button>
+  </div>
+  
+ {{ form_end(form) }}
+ </section>
+ </div>
+
+ </div>
+ </div>
+ </body>
+{% endblock %}
+ 

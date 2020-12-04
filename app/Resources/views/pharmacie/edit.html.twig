@@ -1,0 +1,68 @@
+{% extends 'dashboard.html.twig' %}
+{% block fos_user_content %}
+<div>
+    <section>
+        <ol class="breadcrumb active">
+            <li><a href="{{ path('pharmacie_index') }}"> Liste Des Pharmacies </a></li>
+            <li><a href="#"> Les Informations De La Pharamacie </a></li>
+            <li><a href="#"> Modifier Les Informations </a></li>
+        </ol>
+    </section>
+    <section class="content">
+        <div class="row">
+            <div class="col-md-8" style="margin-left: 150px">
+                <div class="box box-primary">
+                    <div class="box-header with-border">
+                        <h2 class="box-title"> <strong> <em> Modifier Les Informations &#58; {{ pharmacie.nom }} </em></strong></h2>
+                    </div>
+    <form role="form">
+    <div class="box-body">
+
+    {{ form_start(edit_form) }}
+         <div class="form-group">
+                                <h4><i class="fa fa-pencil-square"> Pharmacie </i> </h4>
+                                {{ form_widget(edit_form.nom) }}
+            </div>
+            <div class="form-group">
+                                <h4><i class="fa fa-pencil-square"> Adresse </i> </h4>
+                                {{ form_widget(edit_form.adresse) }}
+            </div>
+            <div class="form-group">
+                                <h4><i class="fa fa-pencil-square"> gouvernorat </i> </h4>
+                                {{ form_widget(edit_form.gouvernorat) }}
+            </div>
+            <div class="form-group">
+                                <h4><i class="fa fa-pencil-square"> Mobile </i> </h4>
+                                {{ form_widget(edit_form.mobile) }}
+            </div>
+            <div class="form-group">
+                                <h4><i class="fa fa-pencil-square"> Fixe </i> </h4>
+                                {{ form_widget(edit_form.fixe) }}
+            </div>
+            <div class="form-group">
+                                <h4><i class="fa fa-pencil-square"> Fax </i> </h4>
+                                {{ form_widget(edit_form.fax) }}
+            </div>
+            <div class="form-group">
+                                <h4><i class="fa fa-pencil-square"> Email </i> </h4>
+                                {{ form_widget(edit_form.email) }}
+            </div>
+   <div class="box-footer">
+                                <a href="{{ path('pharmacie_index') }}" class="btn btn-default"> Annuler</a>
+                                {{ form_start(delete_form) }}
+                                <button type="submit" class="pull-right btn  btn-danger btn-sm"> <i class="fa fa-trash-o">
+                                    </i> Supprimer
+                                </button>
+                                {{ form_end(delete_form) }}
+                                {{ form_widget(edit_form.Save) }}
+                            </div>
+                            {{ form_end(edit_form) }}
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}
+

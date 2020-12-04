@@ -1,0 +1,67 @@
+projet_homepage:
+    path:     /
+    defaults: { _controller: ProjetBundle:Default:index }
+
+projet_accueil:
+    path:     /accueil
+    defaults: { _controller: ProjetBundle:Projet:indexaccueil }
+
+pm_compte :
+    path:     /compte
+    defaults: { _controller: AppBundle:User:index}
+
+pm_show :
+    path:     /{id}/show
+    defaults: { _controller: AppBundle:User:show}
+
+pm_delete :
+    path:     /delete{id}
+    defaults: { _controller: AppBundle:User:deleteUser}
+    
+pm_conseil :
+    path:     /conseil
+    defaults: { _controller: ProjetBundle:Projet:indexconseil}
+
+pharmacie_path:
+    resource:   "@ProjetBundle/Resources/config/routing/pharmacie.yml"
+    prefix: /pharmacie
+
+medicament_path:
+    resource:   "@ProjetBundle/Resources/config/routing/medicament.yml"
+    prefix: /medicament
+
+categorie_path:
+    resource:   "@ProjetBundle/Resources/config/routing/categorie.yml"
+    prefix: /categorie
+
+projet_shopt:
+      path:     /shop
+      defaults: { _controller: ProjetBundle:Projet:shop }
+
+projet_cart:
+      path:     /cart
+      defaults: { _controller: ProjetBundle:Projet:cart }
+      
+projet_add_cart:
+      path:     /add{id}
+      defaults: { _controller: ProjetBundle:Projet:addCart }
+
+projet_delete_cart:
+      path:     /delete{id}
+      defaults: { _controller: ProjetBundle:Projet:deleteCart }
+
+projet_clear_cart:
+      path:     /clear
+      defaults: { _controller: ProjetBundle:Projet:clearCart }
+
+projet_checkout:
+      path:     /checkout
+      defaults: { _controller: ProjetBundle:Projet:checkout }
+
+projet_product_details:
+    path:     /product{id}
+    defaults: { _controller: ProjetBundle:Projet:productDetails }
+
+projet_products_by_categorie:
+      path:     /categorie{id}
+      defaults: { _controller: ProjetBundle:Projet:categorieProducts }

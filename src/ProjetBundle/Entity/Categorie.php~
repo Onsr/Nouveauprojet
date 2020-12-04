@@ -1,0 +1,118 @@
+<?php
+
+namespace ProjetBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Categorie
+ *
+ * @ORM\Table(name="categorie")
+ * @ORM\Entity(repositoryClass="ProjetBundle\Repository\CategorieRepository")
+ */
+class Categorie
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nom", type="string", length=255)
+     */
+    private $nom;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="description", type="string", length=255)
+     */
+    private $description;
+
+    /**
+     * @ORM\OneToMany(targetEntity="ProjetBundle\Entity\Medicament",mappedBy="categorie")
+     */
+    private $medicaments;
+
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set nom
+     *
+     * @param string $nom
+     *
+     * @return Categorie
+     */
+    public function setNom($nom)
+    {
+        $this->nom = $nom;
+
+        return $this;
+    }
+
+    /**
+     * Get nom
+     *
+     * @return string
+     */
+    public function getNom()
+    {
+        return $this->nom;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->medicaments = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add medicament
+     *
+     * @param \ProjetBundle\Entity\Medicament $medicament
+     *
+     * @return Categorie
+     */
+    public function addMedicament(\ProjetBundle\Entity\Medicament $medicament)
+    {
+        $this->medicaments[] = $medicament;
+
+        return $this;
+    }
+
+    /**
+     * Remove medicament
+     *
+     * @param \ProjetBundle\Entity\Medicament $medicament
+     */
+    public function removeMedicament(\ProjetBundle\Entity\Medicament $medicament)
+    {
+        $this->medicaments->removeElement($medicament);
+    }
+
+    /**
+     * Get medicaments
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getMedicaments()
+    {
+        return $this->medicaments;
+    }
+}

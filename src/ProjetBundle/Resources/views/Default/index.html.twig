@@ -1,0 +1,207 @@
+{% extends 'base.html.twig' %}
+{% block main %}
+<body>
+<div class="detail">
+            <div class="text-center">
+                <h2>
+                    La livraison "TakeCare", c’est...
+                </h2 >
+                <div class="steps">
+                    <div class="row">
+                        <div class="col col-12 col-md-3">
+                            <div class="step">
+                                <div class="icon">
+                                 <img src="{{ asset ('assets/images/confiance.png') }}">        
+                                </div>
+                                <div class="title" style="color: #00c19f;">
+                                    <h3>Confiance</h3>
+                                </div>
+                                <div class="description">
+                                    <p>Vos médicaments sont livrés à votre domicile par le livreur.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col col-12 col-md-3">
+                            <div class="step">
+                                <div class="icon">
+                                <img src="{{ asset ('assets/images/confidentiel.png') }}">
+                                </div>
+                                <div class="title" style="color: #00c19f;">
+                                    <h3>Confidentiel</h3>
+                                </div>
+                                <div class="description">
+                                    <p>Seul votre pharmacie accède à votre commande de médicaments et valide la livraison.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col col-12 col-md-3">
+                            <div class="step">
+                                <div class="icon">
+              <img src="{{ asset ('assets/images/moi.png') }}">
+                                </div>
+                                <div class="title" style="color: #00c19f;">
+                                    <h3>Local</h3>
+                                </div>
+                                <div class="description">
+                                    <p>Vos médicaments sont préparés par votre pharmacie habituelle près de chez vous.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col col-12 col-md-3">
+                            <div class="step">
+                                <div class="icon">
+              <img src="{{ asset ('assets/images/fiable.png') }}">
+                                </div>
+                                <div class="title" style="color: #00c19f;">
+                                   <h3> Fiable</h3>
+                                </div>
+                                <div class="description">
+                                    <p>Votre livraison de médicaments à domicile par La Poste est faite le jour de
+                                    votre choix.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+<div class="jumbotron top-space">
+    <div class="container">
+
+        <h1 class="text-center" style="color: #C31226;">T &#46; A &#46; K &#46; E    C &#46; A &#46; R &#46; E</h1>
+        <h2 class="text-center" >Covid-19 : l'offre de livraison de médicaments à domicile s'étend</h2>
+
+        <div class="row">
+            <div class="col-md-3 col-sm-6 highlight">
+                <div class="text-center" style="color: #00c19f;"><h4>C&rsquo;QUOI ?</h4></div>
+                <div class="h-body text-center">
+                    <p> TakeCare est un service de livraison express qui livre vos produits de pharmacie à domicile. Avec cette start-up, les produits commandés à votre pharmacie de quartier vous sont apportés chez vous. TakeCare collabore avec des pharmacie partenaires. Ce qui permet de diminuer les déplacements de chacun et de préserver votre santé.&#45;</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 highlight">
+                <div class="text-center" style="color: #00c19f;"><h4>COMMENT COMMANDER </h4></div>
+                <div class="h-body text-center">
+                    <p>Pour Commander des médicaments&#44; la&#40;ou le&#41; client&#40;s&#41; doivent &#58;
+                        &#49;&#45; Si vous n'etes pas encore insrit, Inscrivez-vous tout d'abord en tant que client<br>
+                        &#50;&#45; Choisir Votre pharmacie <br>
+                        &#51;&#45; Consulter les médicaments<br>
+                        &#51;&#45; Passer Votre Commande<br>
+
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 highlight">
+                <div class="text-center" style="color: #00c19f;"><h4>DESCRIPTION</h4></div>
+                <div class="h-body text-center">
+                    <p>
+                     Avec TakeCare, commandez vos médicaments et faites-vous livrer rapidement. Profitez d'un service rapide, assuré en moins de 60 min à Tunis et petite couronne, fiable avec des produits provenant de pharmacies physiques françaises partenaires, et confidentiel grâce à des sachets à fermeture adhésive dans lesquels vos produits sont envoyés                   
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 highlight">
+            <div class="text-center" style="color: #00c19f;"><h4>Comment puis-je me protéger du Coronavirus ?</h4></div>
+            <div class="h-body">
+              <img src="{{ asset ('assets/images/stay.png') }}">
+            </div>
+            <a href="{{ path ('pm_conseil') }}">Plus De Détails</a>
+            </div>
+        </div> <!-- /row  -->
+    </div>
+</div>
+<div class="col-md-12 text-center" style="padding: 2%;">
+						<div class="col-md-6">
+							<p style="font-variant: all-small-caps;color: #FF2E63;font-weight: 900 !important;font-size: 25px;">
+								TakeCare pour vos patients
+							</p>
+							<p style="width: 347px;font-size: 13px;letter-spacing: 0px;line-height: 21px;font-family: &quot;Nunito&quot;;text-align: center;">
+								Vous souhaitez dynamiser votre visibilité sur le digital ?<br>
+								Proposer un service de livraison à vos patients ?<br>
+								TakeCare vous permet de rester en contact avec vos patients<br> 
+								et de leur offrir un service de soins à domicile de qualité. <br>
+								Nous sommes présents dans 4 villes de France et<br>
+								 avons notre propre flotte de livraison pour vous accompagner.
+							</p>
+							<p><img src="https://www.otzii.com/assets/icons/hospital (2).svg" width="25%"></p>
+						</div>
+						<div class="col-md-4" style="border-bottom: solid 3px #779ce8;">
+							<p><img src="https://www.otzii.com/assets/icons/hospital.svg" width="25%"></p>
+							<p style="font-variant: all-small-caps;color: #FF2E63;font-weight: 900 !important;font-size: 25px;">
+								TakeCare pour <br>les pharmacies <br>
+							</p>
+							<p style="width: 347px;font-size: 13px;letter-spacing: 0px;line-height: 21px;font-family: &quot;Nunito&quot;;text-align: center;">
+								Notre flotte de livreurs garantit une qualité de livraison,<br>
+								grâce à un outil digital de tracking. Programmez vos<br>
+								tournées, suivez l’enlèvement et l’acheminement<br>
+								en temps réel. Notre service est dédié aussi bien<br>
+								pour une mise à disposition que pour des prestations d’urgence.
+							</p>
+						</div>
+
+					</div>
+<!-- container -->
+
+<div class="row engagement">
+        <div class="col-xs-12 col-sm-3">
+            <div class="img">
+                <img class="hidden-xs" src="https://aprium-pharmacie.fr/images/deVotreCote/faciliter.png" alt="">
+                <img class="visible-xs" src="https://aprium-pharmacie.fr/images/deVotreCote/faciliter_mob.png" alt="">
+            </div>
+            <div class="content">
+                <span class="title">faciliter</span>
+                <span class="subtitle">votre vie</span>
+                <hr>
+                <div class="txt">
+                    Grâce à notre réseau de proximité, nous sommes capables de proposer des services innovants et personnalisés, tout en offrant un cadre d’accueil agréable et adapté à l’écoute de chacune et de chacun. Vous pourrez ainsi très prochainement vous faire livrer à domicile votre ordonnance par la Poste ou par coursier.
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-3">
+            <div class="img">
+                <img class="hidden-xs" src="https://aprium-pharmacie.fr/images/deVotreCote/veiller.png" alt="">
+                <img class="visible-xs" src="https://aprium-pharmacie.fr/images/deVotreCote/veiller_mob.png" alt="">
+            </div>
+            <div class="content">
+                <span class="title">Veiller</span>
+                <span class="subtitle">sur votre santé</span>
+                <hr>
+                <div class="txt">
+                    C’est mettre notre compétence et notre expertise produits au service de votre santé. -  Nos équipes sont formées de manière permanente au sein de notre APRIUM SCHOOL, afin qu’elles puissent répondre au mieux à vos attentes.
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-3">
+            <div class="img">
+                <img class="hidden-xs" src="https://aprium-pharmacie.fr/images/deVotreCote/garantir.png" alt="">
+                <img class="visible-xs" src="https://aprium-pharmacie.fr/images/deVotreCote/garantir_mob.png" alt="">
+            </div>
+            <div class="content">
+                <span class="title">garantir</span>
+                <span class="subtitle">le meilleur prix</span>
+                <hr>
+                <div class="txt">
+                    Toute l’année sur les produits les plus demandés, grâce à la puissance d’achat que représentent nos 270 pharmacies unies de votre côté.
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-3">
+            <div class="img">
+                <img class="hidden-xs" src="https://aprium-pharmacie.fr/images/deVotreCote/agir.png" alt="">
+                <img class="visible-xs" src="https://aprium-pharmacie.fr/images/deVotreCote/agir_mob.png" alt="">
+
+            </div>
+            <div class="content">
+                <span class="title">agir</span>
+                <span class="subtitle">DE MANIÈRE RESPONSABLE</span>
+                <hr>
+                <div class="txt">
+                    Chaque jour, nos équipes se mobilisent autour de nos engagements sociétaux et environnementaux (partenaire santé exclusif du Téléthon depuis 2016)
+
+                </div>
+            </div>
+        </div>
+</div>
+</body>
+
+    <footer></footer>
+{% endblock %}

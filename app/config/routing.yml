@@ -1,0 +1,39 @@
+projet_medicament:
+    resource: "@ProjetBundle/Controller/MedicamentController.php"
+    type:     annotation
+
+projet_categorie:
+    resource: "@ProjetBundle/Controller/CategorieController.php"
+    type:     annotation
+
+projet_commande:
+    resource: "@ProjetBundle/Controller/CommandeController.php"
+    type:     annotation
+
+projet_pharmacie:
+    resource: "@ProjetBundle/Controller/PharmacieController.php"
+    type:     annotation
+
+projet_medicament:
+    resource: "@ProjetBundle/Controller/MedicamentController.php"
+    type:     annotation
+
+projet_categorie:
+    resource: "@ProjetBundle/Controller/CategorieController.php"
+    type:     annotation
+
+app_user:
+    resource: "@AppBundle/Controller/UserController.php"
+    type:     annotation
+
+projet:
+    resource: "@ProjetBundle/Resources/config/routing.yml"
+    prefix:   /
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+

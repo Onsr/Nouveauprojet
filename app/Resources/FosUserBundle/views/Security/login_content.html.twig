@@ -1,0 +1,36 @@
+{% trans_default_domain 'FOSUserBundle' %}
+{% block main %}
+<form action="{{ path("fos_user_security_check") }}" method="post" class="form-group jumbotron top-space">
+{% if error %}
+    <div class="text-center alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+{% endif %}
+    {% if csrf_token %}
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+    {% endif %}
+    <div class="container">
+    <div class="col-md-12 col-md-offset-3">
+      <strong><em><h1 class="h1 pull-center">Sign In</h1></em></strong>
+    <label for="username">{{ 'security.login.username'|trans }}</label>
+    <input class="input-group-text" type="text" id="username" name="_username" value="{{ last_username }}" required="required" autocomplete="username" placeholder="username" />
+    <br>
+    <label for="password" >{{ 'security.login.password'|trans }}</label>
+    <input type="password" id="password" name="_password" required="required" autocomplete="current-password" placeholder="password" />
+    <br>
+    <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+    <label for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
+    <br>
+
+        <div class="d-flex justify-content-center">
+            <a href="{{ path('fos_user_resetting_request') }}">Forgot your password?</a>
+        </div>
+        <br>
+        <div align="center" class="button-wrap">
+           <input class="btn btn-action pull-center btn-lg" type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />
+           <input class="btn btn-danger pull-center btn-lg" type="reset" id="_reset" name="_reset" value="Annuler" />
+        </div>
+    </div>
+        </div>
+
+</form>
+                
+{% endblock %}

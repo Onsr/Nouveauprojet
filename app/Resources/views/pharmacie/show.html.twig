@@ -1,0 +1,74 @@
+{% extends 'dashboard.html.twig' %}
+{% block fos_user_content %}
+<div>
+    <section>
+        <ol class="breadcrumb active">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li><a href="{{ path('pharmacie_index') }}"> Liste Des Pharmacies </a></li>
+            <li><a href="#"> Les Informations d&#39;une Pharmacie </a></li>
+        </ol>
+    </section>
+    <section class="content">
+        <div class="row">
+            <div class="col-md-8" style="margin-left: 150px">
+                <div class="box box-primary">
+                    <div class="box-header with-border">
+                        <h3 class="box-title"> <strong> <em> Pharmacie &#58; {{ pharmacie.nom }}</em></strong></h3>
+                    </div>
+                    <div class="box-body">
+      <table class="table table-bordered">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ pharmacie.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ pharmacie.nom }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ pharmacie.adresse }}</td>
+            </tr>
+            <tr>
+                <th>Gouvernorat</th>
+                <td>{{ pharmacie.gouvernorat }}</td>
+            </tr>
+            <tr>
+                <th>Fixe</th>
+                <td>{{ pharmacie.fixe }}</td>
+            </tr>
+            <tr>
+                <th>Fax</th>
+                <td>{{ pharmacie.fax }}</td>
+            </tr>
+            <tr>
+                <th>Mobile</th>
+                <td>{{ pharmacie.mobile }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ pharmacie.email }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+     </div>
+                    <div class="box-footer">
+                        <a href="{{ path('pharmacie_index') }}" class="btn btn-default"> Annuler</a>
+                        <a href="{{ path('pharmacie_edit', { 'id': pharmacie.id }) }}" class="pull-right btn btn-warning  btn-sm">
+                            <i class="fa  fa-pencil-square-o"></i> Modifier
+                        </a>
+                        {{ form_start(delete_form) }}
+                        <button type="submit" class="pull-right btn btn-danger btn-sm"> <i class="fa fa-trash-o">
+                            </i> Supprimer
+                        </button>
+                        {{ form_end(delete_form) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}
+

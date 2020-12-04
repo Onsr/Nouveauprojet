@@ -1,0 +1,29 @@
+chercheur_index:
+    path:     /
+    defaults: { _controller: "PnriBundle:Chercheur:index" }
+    methods: [GET, POST]
+
+categorie_show:
+    path:     /{id}/show
+    defaults: { _controller: "ProjetBundle:Categorie:show" }
+    methods:  GET
+
+categorie_new:
+    path:     /new
+    defaults: { _controller: "ProjetBundle:Categorie:new" }
+    methods:  [GET, POST]
+
+categorie_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "ProjetBundle:Categorie:edit" }
+    methods:  [GET, POST]
+
+categorie_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "ProjetBundle:Categorie:delete" }
+    methods:  DELETE
+
+categorie_search:
+    path:     /search
+    defaults: { _controller: "ProjetBundle:Categorie:searchCategorie" }
+    methods:  [GET, POST]

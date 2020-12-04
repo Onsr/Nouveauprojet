@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block fos_user_content %}
+    <section class="content">
+        <div class="row">
+            <div class="col-md-11">
+                <div class="box">
+                    <div class="box-header">
+                        <h1 class="box-title"> Liste Pharmacies</h1>
+                        <a href="{{ path ('pharmacie_search') }}" class="pull-right btn btn-info  btn-sm">
+                            <i class="fa fa-search"></i> Rechercher
+                        </a>
+                    </div>
+    <div class="box-body">
+      <table id="example2" class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Adresse</th>
+                <th>Gouvernorat</th>
+                <th>Fixe</th>
+                <th>Fax</th>
+                <th>Mobile</th>
+                <th>Email</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for pharmacie in pharmacies %}
+            <tr>
+                <td><a href="{{ path('pharmacie_show', { 'id': pharmacie.id }) }}">{{ pharmacie.id }}</a></td>
+                <td>{{ pharmacie.nom }}</td>
+                <td>{{ pharmacie.adresse }}</td>
+                <td>{{ pharmacie.gouvernorat }}</td>
+                <td>{{ pharmacie.fixe }}</td>
+                <td>{{ pharmacie.fax }}</td>
+                <td>{{ pharmacie.mobile }}</td>
+                <td>{{ pharmacie.email }}</td>
+                <td>
+                    <div class="margin">
+                                        <div class="btn-group">
+                                            <a href="{{ path('pharmacie_show', { 'id': pharmacie.id }) }}" class="pull-left btn  btn-primary btn-sm">
+                                                <i class="fa fa-sticky-note-o"></i> Afficher
+                                            </a>
+                                            <br>
+                                            <a href="{{ path('pharmacie_edit', { 'id': pharmacie.id }) }}" class="pull-right btn btn-warning  btn-sm">
+                                                <i class="fa  fa-pencil-square-o"></i> Modifier
+                                            </a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                    </div>
+                </div>
+                <a href="{{ path('pharmacie_new') }}" class="pull-right btn btn-Success  btn-sm"><i class="fa fa-plus-circle"></i> Ajouter Une Pharmacie </a>
+            </div>
+        </div>
+    </section>
+{% endblock %}
