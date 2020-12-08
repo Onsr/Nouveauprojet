@@ -1,38 +1,47 @@
-{% extends 'base.html.twig' %}
+{% extends 'dashboard.html.twig' %}
 {% form_theme form 'bootstrap_3_layout.html.twig' %}
 {% block fos_user_content %}
-    <div id="wrapper">
- 
-      <!-- Sidebar -->
-      <ul class="sidebar navbar-nav">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Dashboard</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{ path('medicament_new') }}">
-            <i class="fas fa-fw fa-bars"></i>
-            <span>Ajouter Medicament</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{ path('categorie_new') }}">
-            <i class="fas fa-fw fa-table"></i>
-            <span>Ajouter Categorie</span></a>
-        </li>
-      </ul>
-    <div class="container">
+    <div>
+    <section>
+        <ol class="breadcrumb active">
+            <li><a href="{{ path('categorie_index') }}"> Liste Des Catégories </a></li>
+            <li><a href="#"> Ajout Catégorie </a></li>
+        </ol>
+    </section>
+    <section class="content">
+        <div class="row">
+            <div class="col-md-8" style="margin-left: 150px">
+                <div class="box box-primary">
+                    <div class="box-header with-border">
+                        <h2 class="text-center" style="color:red">Ajouter Une catégorie</h2>
+                    </div>
+     <div class="box-body">
     {{ form_start(form) }}
-        {{ form_widget(form) }}
+        <div class="form-group">
+                                <h4><i class="fa fa-pencil-square"> Categorie </i> </h4>
+                                {{ form_widget(form.nom) }}
+            </div>
+            <div class="form-group">
+                                <h4><i class="fa fa-pencil-square"> Description </i> </h4>
+                                {{ form_widget(form.description) }}
+            </div>
         <input type="submit" class="btn btn-primary col-md-12" value="Ajouter" />
     {{ form_end(form) }}
-   </div>
+  <div class="box-footer">
+                                <a href="{{ path('medicament_index') }}" class="btn btn-danger"> Annuler</a>
+                            </div>
+                            {{ form_end(form) }}
+                        </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
  </div>
  <footer class="sticky-footer">
           <div class="container my-auto">
             <div class="copyright text-center my-auto">
-              <span>Copyright © Your Website 2018</span>
+              <span>Copyright © Your Website 2021</span>
             </div>
           </div>
         </footer>
@@ -41,34 +50,10 @@
       <!-- /.content-wrapper -->
 
     </div>
-    <!-- /#wrapper -->
-
     <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">
       <i class="fas fa-angle-up"></i>
     </a>
 
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">×</span>
-            </button>
-          </div>
-          <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-          <div class="modal-footer">
-            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            <a class="btn btn-primary" href="/logout">Logout</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <ul>
-        <li>
-            <a href="{{ path('categorie_index') }}">Back to the list</a>
-        </li>
-    </ul>
+  
 {% endblock %}

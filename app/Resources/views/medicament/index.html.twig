@@ -1,18 +1,27 @@
-{% extends 'base.html.twig' %}
+{% extends 'dashboard.html.twig' %}
 
 {% block fos_user_content %}
-    <h1>Medicaments list</h1>
-
-    <table>
+     <section class="content">
+        <div class="row">
+            <div class="col-md-11">
+                <div class="box">
+                    <div class="box-header">
+                        <h1 class="box-title"> Liste médicaments</h1>
+                        <a href="#" class="pull-right btn btn-info  btn-sm">
+                            <i class="fa fa-search"></i> Rechercher
+                        </a>
+                    </div>
+    <div class="box-body">
+      <table id="example2" class="table table-bordered table-hover">
         <thead>
             <tr>
                 <th>Id</th>
                 <th>Nom</th>
                 <th>Description</th>
-                <th>Prix</th>
+               {# <th>Prix</th>
                 <th>Image</th>
                 <th>Datefab</th>
-                <th>Dateexp</th>
+                <th>Dateexp</th>#}
                 <th>Actions</th>
             </tr>
         </thead>
@@ -22,28 +31,75 @@
                 <td><a href="{{ path('medicament_show', { 'id': medicament.id }) }}">{{ medicament.id }}</a></td>
                 <td>{{ medicament.nom }}</td>
                 <td>{{ medicament.description }}</td>
-                <td>{{ medicament.prix }}</td>
+                {#<td>{{ medicament.prix }}</td>
                 <td>{{ medicament.image }}</td>
                 <td>{% if medicament.dateFab %}{{ medicament.dateFab|date('Y-m-d') }}{% endif %}</td>
-                <td>{% if medicament.dateExp %}{{ medicament.dateExp|date('Y-m-d') }}{% endif %}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('medicament_show', { 'id': medicament.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('medicament_edit', { 'id': medicament.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('medicament_new') }}">Create a new medicament</a>
-        </li>
-    </ul>
+                <td>{% if medicament.dateExp %}{{ medicament.dateExp|date('Y-m-d') }}{% endif %}</td>#}
+                 <td>
+                                            <div class="margin">
+                                                <div class="btn-group">
+                                                    {#pop upp affichage #}
+                                                    <button type="button" class="pull-left btn  btn-primary btn-sm" data-toggle="modal" data-target="#myModal{{ medicament.id }}">  <i class="fa fa-sticky-note-o"></i> Afficher </button>
+                                                    <div class="modal fade" id="myModal{{ medicament.id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog">
+                                                            <br><br><br><br>
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                                    <h4 class="modal-title" id="myModalLabel"> les Informations de  : {{ medicament.nom }} {{ medicament.image }}  </h4>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <div class="row">
+                                                                        <div class="col-lg-6">
+                                                                            <ul>
+                                                                                <li><strong>Catégorie :</strong> {{ medicament.categorie.nom }}</li><br>
+                                                                                <li><strong>Description :</strong> {{ medicament.description }}</li><br>
+                                                                                <li><strong>Prix :</strong> {{ medicament.prix }}</li><br>
+                                                                                <li><strong>Date de fabrication :</strong> {% if medicament.dateFab %}{{ medicament.dateFab|date('Y-m-d') }}{% endif %}</li><br>
+                                                                                <li><strong>Date d'Expiration :</strong> {% if medicament.dateExp %}{{ medicament.dateExp|date('Y-m-d') }}{% endif %}</li><br>
+                                                                                <li><strong>Stock :</strong> {{ medicament.stock }}</li><br>
+                                                            
+                                                                            </ul>
+                                                                        </div>
+                                                                        <div class="col-lg-6">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    {#endpop up affichage#}
+                                                    <br>
+                                                    <a href="{{ path('medicament_edit', { 'id': medicament.id }) }}" class="pull-right btn btn-warning  btn-sm">
+                                                        <i class="fa  fa-pencil-square-o"></i> Modifier
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </td>
+                {# <td>
+                                  <div class="margin">
+                                        <div class="btn-group">
+                                            <a href="{{ path('medicament_show', { 'id': medicament.id }) }}" class="pull-left btn  btn-primary btn-sm">
+                                                <i class="fa fa-sticky-note-o"></i> Afficher
+                                            </a>
+                                            <br>
+                                            <a href="{{ path('medicament_edit', { 'id': medicament.id }) }}" class="pull-right btn btn-warning  btn-sm">
+                                                <i class="fa  fa-pencil-square-o"></i> Modifier
+                                            </a>
+                                        </div>
+                                    </div>
+                </td>#}
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                    </div>
+                </div>
+                <a href="{{ path('medicament_new') }}" class="pull-right btn btn-Success  btn-sm"><i class="fa fa-plus-circle"></i> Ajouter Une Médicament </a>
+            </div>
+        </div>
+    </section>
 {% endblock %}

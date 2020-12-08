@@ -1,21 +1,70 @@
 {% extends 'dashboard.html.twig' %}
-
 {% block fos_user_content %}
-    <h1>Medicament edit</h1>
-
+    <div>
+    <section>
+        <ol class="breadcrumb active">
+            <li><a href="{{ path('medicament_index') }}"> Liste Des Médicament </a></li>
+            <li><a href="#"> Les Informations De La Médicament </a></li>
+            <li><a href="#"> Modifier Les Informations </a></li>
+        </ol>
+    </section>
+    <section class="content">
+        <div class="row">
+            <div class="col-md-8" style="margin-left: 150px">
+                <div class="box box-primary">
+                    <div class="box-header with-border">
+                        <h2 class="box-title"> <strong> <em> Modifier Les Informations &#58; {{ medicament.nom }} </em></strong></h2>
+                    </div>
+    <form role="form">
+    <div class="box-body">
     {{ form_start(edit_form) }}
-        {{ form_widget(edit_form) }}
-        <input type="submit" value="Edit" />
-    {{ form_end(edit_form) }}
-
-    <ul>
-        <li>
-            <a href="{{ path('medicament_index') }}">Back to the list</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+            <div class="form-group">
+                                <h4><i class="fa fa-pencil-square"> Médicament </i> </h4>
+                                {{ form_widget(edit_form.nom) }}
+            </div>
+             <div class="form-group">
+                                <h4><i class="fa fa-pencil-square"> Description </i> </h4>
+                                {{ form_widget(edit_form.description) }}
+            </div>
+             <div class="form-group">
+                                <h4><i class="fa fa-pencil-square"> Prix </i> </h4>
+                                {{ form_widget(edit_form.prix) }}
+            </div>
+             <div class="form-group">
+                                <h4><i class="fa fa-pencil-square"> Médicament </i> </h4>
+                                {{ form_widget(edit_form.image) }}
+            </div>
+             <div class="form-group">
+                                <h4><i class="fa fa-pencil-square"> Médicament </i> </h4>
+                                {{ form_widget(edit_form.dateFab) }}
+            </div>
+             <div class="form-group">
+                                <h4><i class="fa fa-pencil-square"> Médicament </i> </h4>
+                                {{ form_widget(edit_form.dateExp) }}
+            </div>
+             <div class="form-group">
+                                <h4><i class="fa fa-pencil-square"> Médicament </i> </h4>
+                                {{ form_widget(edit_form.stock) }}
+            </div>
+             <div class="form-group">
+                                <h4><i class="fa fa-pencil-square"> Médicament </i> </h4>
+                                {{ form_widget(edit_form.categorie.nom) }}
+            </div>
+       <div class="box-footer">
+                                <a href="{{ path ('medicament_index') }}" class="btn btn-default"> Annuler</a>
+                                {{ form_start(delete_form) }}
+                                <button type="submit" class="pull-right btn  btn-danger btn-sm"> <i class="fa fa-trash-o">
+                                    </i> Supprimer
+                                </button>
+                                {{ form_end(delete_form) }}
+                                {{ form_widget(edit_form.Save) }}
+                            </div>
+                            {{ form_end(edit_form) }}
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
 {% endblock %}

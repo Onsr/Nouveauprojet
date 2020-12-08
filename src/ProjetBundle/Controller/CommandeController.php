@@ -40,6 +40,7 @@ class CommandeController extends Controller
     public function newAction(Request $request)
     {
         $commande = new Commande();
+        $form = $this->createFormBuilder(new Commande());
         $form = $this->createForm('ProjetBundle\Form\CommandeType', $commande);
         $form->handleRequest($request);
 

@@ -26,7 +26,7 @@
               <h4>{{ medicament.prix }}DT</h4>
               <p class="card-text">{{ medicament.description }}</p>
               {% if panier[medicament.id] is not defined %}
-                        <form action="{{ path ('projet_add_cart', { 'id' : pedicament.id }) }}" method="get">
+                        <form action="{{ path ('projet_add_cart', { 'id' : medicament.id }) }}" method="get">
                             <select name="qte" class="span1">
                                 {% for i in 1..10 %}
                                     <option value="{{ i }}">{{ i }}</option>

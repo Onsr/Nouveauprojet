@@ -1,16 +1,100 @@
-{% extends 'base.html.twig' %}
+{% extends 'dashboard.html.twig' %}
 
 {% block fos_user_content %}
-    <h1>Medicament creation</h1>
-
+   <div>
+    <section>
+        <ol class="breadcrumb active">
+            <li><a href="{{ path('medicament_index') }}"> Liste Des Médicaments </a></li>
+            <li><a href="#"> Ajout Medicament </a></li>
+        </ol>
+    </section>
+    <section class="content">
+        <div class="row">
+            <div class="col-md-8" style="margin-left: 150px">
+                <div class="box box-primary">
+                    <div class="box-header with-border">
+                        <h2 class="text-center" style="color:red">Ajouter Un Médicament</h2>
+                    </div>
+     <div class="box-body">
     {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Create" />
-    {{ form_end(form) }}
+            <div class="form-group">
+                                <h4><i class="fa fa-pencil-square"> Nom </i> </h4>
+                                {{ form_widget(form.nom) }}
+            </div>
+            <div class="form-group">
+                                <h4><i class="fa fa-pencil-square"> Description </i> </h4>
+                                {{ form_widget(form.description) }}
+            </div>
+            <div class="form-group">
+                                <h4><i class="fa fa-pencil-square"> Image </i> </h4>
+                                {{ form_widget(form.image) }}
+            </div>
+            <div class="form-group">
+                                <h4><i class="fa fa-pencil-square"> Stock </i> </h4>
+                                {{ form_widget(form.stock) }}
+            </div>
+            <div class="form-group">
+                                <h4><i class="fa fa-pencil-square"> Prix </i> </h4>
+                                {{ form_widget(form.prix) }}
+            </div>
+            <div class="form-group">
+                                <h4><i class="fa fa-pencil-square"> Date de fabrication </i> </h4>
+                                {{ form_widget(form.dateFab) }}
+            </div>
+            <div class="form-group">
+                                <h4><i class="fa fa-pencil-square"> Date d'expiration </i> </h4>
+                                {{ form_widget(form.dateExp) }}
+            </div>
+            <div class="form-group">
+                                <h4><i class="fa fa-pencil-square"> Catégorie </i> </h4>
+                                {{ form_widget(form.categorie) }}
+            </div>
+        <div class="box-footer">
+                                <a href="{{ path('medicament_index') }}" class="btn btn-default"> Annuler</a>
+                                {{ form_widget(form.Save) }}
+                            </div>
+                            {{ form_end(form) }}
+                        </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+ </div>
+ <footer class="sticky-footer">
+          <div class="container my-auto">
+            <div class="copyright text-center my-auto">
+              <span>Copyright © Your Website 2021</span>
+            </div>
+          </div>
+        </footer>
 
-    <ul>
-        <li>
-            <a href="{{ path('medicament_index') }}">Back to the list</a>
-        </li>
-    </ul>
+      </div>
+      <!-- /.content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fas fa-angle-up"></i>
+    </a>
+
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+            <a class="btn btn-primary" href="/logout">Logout</a>
+          </div>
+        </div>
+      </div>
+    </div>
 {% endblock %}

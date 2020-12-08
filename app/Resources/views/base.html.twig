@@ -66,8 +66,8 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">More Pages <b class="caret"></b></a>
                     <ul class="dropdown-menu">
-                        <li><a href="sidebar-left.html">Left Sidebar</a></li>
-                        <li class="active"><a href="sidebar-right.html">Right Sidebar</a></li>
+                        <li><a href="#">Left Sidebar</a></li>
+                        <li class="active"><a href="#">Right Sidebar</a></li>
                     </ul>
                 </li>
                 <li><a href="contact.html">Contact</a></li> 
@@ -88,15 +88,15 @@
 
                 {% if is_granted('ROLE_SUPER_ADMIN') %}
                     
-                    <li><a class="btn" href="{{ path ('projet_homepage') }}"><i class="fa fa-circle-o"></i> Dashboard</a></li>
+                    <li><a class="btn" href="{{path ('pm_compte')}} "><i class="fa fa-circle-o"></i> Dashboard</a></li>
                 {% else %}
                     {% if is_granted('ROLE_ADMIN') %}
-                    <li><a class="btn" href="{{ path ('projet_homepage') }}"><i class="fa fa-circle-o"></i> Dashboard</a></li>
+                    <li><a class="btn" href="#"><i class="fa fa-circle-o"></i> Dashboard</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Votre Pharmacie<b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                           <li><a href="sidebar-left.html">Ajouter</a></li>
-                           <li class="active"><a href="sidebar-right.html">Afficher</a></li>
+                           <li><a href="{{ path ('pharmacie_new') }}">Ajouter</a></li>
+                          
                         </ul>
                     </li>
                     {% else %}

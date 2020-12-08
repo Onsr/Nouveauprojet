@@ -78,6 +78,11 @@ class Medicament
      * @ORM\JoinColumn(name="categorie",referencedColumnName="id")
      */
     private $categorie;
+    
+    /** 
+     *@ORM\ManyToMany(targetEntity="ProjetBundle\Entity\Commande", cascade={"persist"}) 
+     */ 
+    private $commandes; 
 
 
     /**
@@ -256,5 +261,29 @@ class Medicament
     public function getCategorie()
     {
         return $this->categorie;
+    }
+
+    /**
+     * Set stock
+     *
+     * @param integer $stock
+     *
+     * @return Medicament
+     */
+    public function setStock($stock)
+    {
+        $this->stock = $stock;
+
+        return $this;
+    }
+
+    /**
+     * Get stock
+     *
+     * @return integer
+     */
+    public function getStock()
+    {
+        return $this->stock;
     }
 }

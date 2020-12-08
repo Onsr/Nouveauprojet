@@ -1,25 +1,17 @@
-projet_medicament:
-    resource: "@ProjetBundle/Controller/MedicamentController.php"
-    type:     annotation
-
-projet_categorie:
-    resource: "@ProjetBundle/Controller/CategorieController.php"
-    type:     annotation
-
 projet_commande:
     resource: "@ProjetBundle/Controller/CommandeController.php"
     type:     annotation
 
-projet_pharmacie:
-    resource: "@ProjetBundle/Controller/PharmacieController.php"
-    type:     annotation
-
 projet_medicament:
     resource: "@ProjetBundle/Controller/MedicamentController.php"
     type:     annotation
 
 projet_categorie:
     resource: "@ProjetBundle/Controller/CategorieController.php"
+    type:     annotation
+
+projet_pharmacie:
+    resource: "@ProjetBundle/Controller/PharmacieController.php"
     type:     annotation
 
 app_user:

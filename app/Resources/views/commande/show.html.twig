@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'dashboard.html.twig' %}
 
 {% block body %}
     <h1>Commande</h1>
@@ -20,6 +20,14 @@
             <tr>
                 <th>Montant</th>
                 <td>{{ commande.montant }}</td>
+            </tr>
+            <tr>
+                <th>Adressec</th>
+                <td>{{ commande.adresseC }}</td>
+            </tr>
+            <tr>
+                <th>Validation</th>
+                <td>{% if commande.validation %}Yes{% else %}No{% endif %}</td>
             </tr>
         </tbody>
     </table>

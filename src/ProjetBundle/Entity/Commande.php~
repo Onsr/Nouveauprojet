@@ -228,38 +228,4 @@ class Commande
     }
 
    
-
-    /**
-     * Add medicament
-     *
-     * @param \ProjetBundle\Entity\Medicament $medicament
-     *
-     * @return Commande
-     */
-    public function addMedicament(\ProjetBundle\Entity\Medicament $medicament)
-    {
-        $this->medicament[] = $medicament;
-
-        return $this;
-    }
-
-    /**
-     * Remove medicament
-     *
-     * @param \ProjetBundle\Entity\Medicament $medicament
-     */
-    public function removeMedicament(\ProjetBundle\Entity\Medicament $medicament)
-    {
-        $this->medicament->removeElement($medicament);
-    }
-
-    /**
-     * Get medicament
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getMedicament()
-    {
-        return $this->medicament;
-    }
 }

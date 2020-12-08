@@ -10,6 +10,9 @@ use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\MoneyType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Doctrine\ORM\EntityRepository;
 
@@ -24,6 +27,7 @@ class MedicamentType extends AbstractType
         ->add('description',TextType::class)
         ->add('prix',MoneyType::class)
         ->add('image',FileType::class, ['label' => 'ajouter une image'])
+        ->add('stock',IntegerType::class)
         ->add('dateFab',DateType::class)
         ->add('dateExp',DateType::class)
         ->add('categorie',EntityType::class, [
@@ -33,7 +37,12 @@ class MedicamentType extends AbstractType
                     ->orderBy('u.nom', 'ASC');
             },
             'choice_label' => 'nom',]
-        );
+        )
+        ->add('Save',SubmitType::class,[
+            'attr' => [
+                'class' =>
+                    'pull-right btn  btn-success btn-sm; fa  fa-check-circle']
+        ]);
     }
     /**
      * {@inheritdoc}

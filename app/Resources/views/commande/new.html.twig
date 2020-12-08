@@ -1,16 +1,59 @@
 {% extends 'dashboard.html.twig' %}
 
 {% block fos_user_content %}
-    <h1>Commande creation</h1>
-
+  <div>
+    <section>
+        <ol class="breadcrumb active">
+            <li><a href="{{ path('commande_index') }}"> Liste Des Commandes </a></li>
+            <li><a href="#"> Ajout Commande </a></li>
+        </ol>
+    </section>
+    <section class="content">
+        <div class="row">
+            <div class="col-md-8" style="margin-left: 150px">
+                <div class="box box-primary">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Ajouter Une Commande</h3>
+                    </div>
+     <div class="box-body">
     {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Create" />
-    {{ form_end(form) }}
-
-    <ul>
-        <li>
-            <a href="{{ path('commande_index') }}">Back to the list</a>
-        </li>
-    </ul>
+            <div class="form-group">
+                                <h4><i class="fa fa-pencil-square"> Client De la commande </i> </h4>
+                                 {{ form_widget(form.user) }}
+            </div>
+             <div class="form-group">
+                                <h4><i class="fa fa-pencil-square"> Client De la commande </i> </h4>
+                                 {{ form_widget(form.medicament) }}
+            </div>
+           <div class="form-group">
+                                <h4><i class="fa fa-pencil-square"> Code </i> </h4>
+                                 {{ form_widget(form.codeC) }}
+            </div>
+            <div class="form-group">
+                                <h4><i class="fa fa-pencil-square"> Date </i> </h4>
+                                {{ form_widget(form.dateC) }}
+            </div>
+            <div class="form-group">
+                                <h4><i class="fa fa-pencil-square"> Montant </i> </h4>
+                                {{ form_widget(form.montant) }}
+            </div>
+            <div class="form-group">
+                                <h4><i class="fa fa-pencil-square"> Adresse </i> </h4>
+                                {{ form_widget(form.adresseC) }}
+            </div>
+            <div class="form-group">
+                                <h4><i class="fa fa-pencil-square"> Décision </i> </h4>
+                                {{ form_widget(form.validation) }}
+            </div>              
+        <div class="box-footer">
+                                <a href="{{ path('commande_index') }}" class="btn btn-default"> Annuler</a>
+                                {{ form_widget(form.Save) }}
+                            </div>
+                            {{ form_end(form) }}
+                        </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
 {% endblock %}
