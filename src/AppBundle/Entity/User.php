@@ -60,6 +60,11 @@
              * @var int
              *
              * @ORM\Column(name="CodePostal", type="integer")
+             * @Assert\Length(
+             *      min = 4,
+             *      max = 4,
+             *      minMessage = "Your first name must be at least {{ limit }} characters long",
+             *      maxMessage = "Your first name cannot be longer than {{ limit }} characters")
              */
             private $CodePostal;
 

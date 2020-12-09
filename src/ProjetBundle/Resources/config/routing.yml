@@ -34,7 +34,7 @@ categorie_path:
     resource:   "@ProjetBundle/Resources/config/routing/categorie.yml"
     prefix: /categorie
 
-projet_shopt:
+projet_shop:
       path:     /shop
       defaults: { _controller: ProjetBundle:Projet:shop }
 
