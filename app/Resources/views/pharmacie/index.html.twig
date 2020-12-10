@@ -12,10 +12,11 @@
                         </a>
                     </div>
     <div class="box-body">
-      <table id="example2" class="table table-bordered table-hover">
-        <thead>
+      <table id="myTable" class="table table-striped">
+        <thead class="thead-dark">
             <tr>
                 <th>Id</th>
+                <th>Le directeur </th>
                 <th>Nom</th>
                 <th>Adresse</th>
                 <th>Gouvernorat</th>
@@ -30,6 +31,7 @@
         {% for pharmacie in pharmacies %}
             <tr>
                 <td><a href="{{ path('pharmacie_show', { 'id': pharmacie.id }) }}">{{ pharmacie.id }}</a></td>
+                <td>{{ pharmacie.user }}</td>
                 <td>{{ pharmacie.nom }}</td>
                 <td>{{ pharmacie.adresse }}</td>
                 <td>{{ pharmacie.gouvernorat }}</td>

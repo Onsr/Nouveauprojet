@@ -4,7 +4,7 @@
 <div>
     <section>
         <ol class="breadcrumb active">
-            <li><a href="{{ path('pharmacie_index') }}"> Liste Des Pharmacies </a></li>
+            <li><a href="#"> Liste Des Pharmacies </a></li>
             <li><a href="#"> Ajout Pharmacie </a></li>
         </ol>
     </section>
@@ -17,6 +17,11 @@
                     </div>
      <div class="box-body">
          {{ form_start(form) }}
+          <div class="form-group">
+                                <h4><i class="fa fa-pencil-square"> Pharmacie </i> </h4>
+                                {{ form_widget(form.user) }} 
+            </div>
+         
              <div class="form-group">
                                 <h4><i class="fa fa-pencil-square"> Pharmacie </i> </h4>
                                 {{ form_widget(form.nom) }}
@@ -46,7 +51,7 @@
                                 {{ form_widget(form.email) }}
             </div>
              <div class="box-footer">
-                                <a href="{{ path('pharmacie_index') }}" class="btn btn-default"> Annuler</a>
+                                <a href="{{ path('projet_homepage') }}" class="btn btn-default"> Annuler</a>
                                 {{ form_widget(form.Save) }}
                             </div>
                             {{ form_end(form) }}

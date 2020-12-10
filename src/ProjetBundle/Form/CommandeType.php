@@ -5,6 +5,15 @@ namespace ProjetBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Doctrine\ORM\EntityRepository;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\MoneyType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+
+
 
 class CommandeType extends AbstractType
 {
@@ -13,11 +22,11 @@ class CommandeType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('codeC')
-        ->add('dateC')
-        ->add('montant')
-        ->add('adresseC')
-        ->add('validation')
+        $builder->add('codeC',TextType::class)
+        ->add('dateC',DateType::class)
+        ->add('montant',MoneyType::class)
+        ->add('adresseC',TextType::class)
+        ->add('validation',ChoiceType::class)
         ->add('user',EntityType::class, [
             'class' => 'AppBundle:User',
             'query_builder' => function (EntityRepository $er) {
@@ -32,8 +41,14 @@ class CommandeType extends AbstractType
                 return $er->createQueryBuilder('u')
                     ->orderBy('u.nom', 'ASC');
             },
-            'choice_label' => 'nom',]
-        );
+            'choice_label' => 'nom',
+            'multiple'=>true]
+        )
+        ->add('Save',SubmitType::class,[
+            'attr' => [
+                'class' =>
+                    'pull-right btn  btn-success btn-sm; fa  fa-check-circle']
+        ]);
     }/**
      * {@inheritdoc}
      */

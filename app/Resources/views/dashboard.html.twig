@@ -18,6 +18,30 @@
   <link rel="stylesheet" href="{{ asset ('bundles/bower_components/jvectormap/jquery-jvectormap.css') }}">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{ asset ('bundles/dist/css/AdminLTE.min.css') }}">
+<script>
+ function myFunction() {
+  // Declare variables
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+</script>
+<script>('.dropdown-toggle').dropdown()</script>
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="{{ asset ('bundles/dist/css/skins/_all-skins.min.css') }}">
@@ -75,11 +99,23 @@
                 </div>
               </li>
             </ul>
-          </li>
+          </li> 
 
         </ul>
       </div>
     </nav>
+    <div class="pull-right">
+          <form action="search" method="get" class="form-inline">
+            <div class="input-group">
+              <input type="text" name="search" class="form-control" id="myInput" onkeyup="myFunction()" placeholder="Je cherche...">
+              <div class="input-group-btn">
+                <button type="submit" class="btn btn-info"><span class="fa fa-search"></span>
+                  Chercher
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
   </header>
   <!-- Left side column. contains the logo and sidebar -->
 {% if is_granted('ROLE_ADMIN') %}

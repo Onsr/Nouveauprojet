@@ -10,6 +10,10 @@ use Symfony\Component\Form\Extension\Core\Type\TelType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Doctrine\ORM\EntityRepository;
+
+
 
 
 class PharmacieType extends AbstractType
@@ -19,7 +23,10 @@ class PharmacieType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('nom',TextType::class)
+        $builder->add('user',EntityType::class,[
+        'class' => 'AppBundle:User',
+        'choice_label' => 'username'])
+        ->add('nom',TextType::class)
         ->add('adresse',TextType::class)
         ->add('gouvernorat',ChoiceType::class, [
             'choices'  => [

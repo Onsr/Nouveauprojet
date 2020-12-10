@@ -8,6 +8,9 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Doctrine\ORM\EntityRepository;
+
 
 
 class CategorieType extends AbstractType
@@ -25,7 +28,16 @@ class CategorieType extends AbstractType
             'allow_add' => true,
             'allow_delete' => true,
             'prototype' => true,
-            'by_reference' => false]);
+            'by_reference' => false])
+        ->add('pharmacie',EntityType::class, [
+                'class' => 'ProjetBundle:Pharmacie',
+                'query_builder' => function (EntityRepository $er) {
+                    return $er->createQueryBuilder('u')
+                        ->orderBy('u.nom', 'ASC');
+                },
+                'choice_label' => 'nom',
+                'multiple' => false]
+            );   
     }/**
      * {@inheritdoc}
      */

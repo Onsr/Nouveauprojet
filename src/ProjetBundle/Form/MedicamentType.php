@@ -30,14 +30,6 @@ class MedicamentType extends AbstractType
         ->add('stock',IntegerType::class)
         ->add('dateFab',DateType::class)
         ->add('dateExp',DateType::class)
-        ->add('categorie',EntityType::class, [
-            'class' => 'ProjetBundle:Categorie',
-            'query_builder' => function (EntityRepository $er) {
-                return $er->createQueryBuilder('u')
-                    ->orderBy('u.nom', 'ASC');
-            },
-            'choice_label' => 'nom',]
-        )
         ->add('Save',SubmitType::class,[
             'attr' => [
                 'class' =>

@@ -40,6 +40,11 @@ class Categorie
      */
     private $medicaments;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="ProjetBundle\Entity\Pharmacie",cascade={"persist"})
+     */
+    private $pharmacie;
+
 
     /**
      * Get id
@@ -114,5 +119,29 @@ class Categorie
     public function getMedicaments()
     {
         return $this->medicaments;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     *
+     * @return Categorie
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
     }
 }

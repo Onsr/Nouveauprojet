@@ -4,7 +4,7 @@
     <section>
         <ol class="breadcrumb active">
             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li><a href="{{ path('pharmacie_index') }}"> Liste Des Pharmacies </a></li>
+            <li><a href="#"> Liste Des Pharmacies </a></li>
             <li><a href="#"> Les Informations d&#39;une Pharmacie </a></li>
         </ol>
     </section>
@@ -19,8 +19,8 @@
       <table class="table table-bordered">
         <tbody>
             <tr>
-                <th>Id</th>
-                <td>{{ pharmacie.id }}</td>
+                <th>Le directeur</th>
+                <td>{{ pharmacie.user }}</td>
             </tr>
             <tr>
                 <th>Nom</th>
