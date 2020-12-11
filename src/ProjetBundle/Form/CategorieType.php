@@ -21,24 +21,19 @@ class CategorieType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('nom',TextType::class)
-        ->add('description',TextType::class)
-        ->add('medicaments',CollectionType::class, [ 
-            'entry_type' => MedicamentType::class,
-            'entry_options' =>['label' => false],
-            'allow_add' => true,
-            'allow_delete' => true,
-            'prototype' => true,
-            'by_reference' => false])
-        ->add('pharmacie',EntityType::class, [
+        ->add('description',TextType::class);
+        
+        /*->add('pharmacie',EntityType::class, [
                 'class' => 'ProjetBundle:Pharmacie',
                 'query_builder' => function (EntityRepository $er) {
                     return $er->createQueryBuilder('u')
                         ->orderBy('u.nom', 'ASC');
                 },
                 'choice_label' => 'nom',
-                'multiple' => false]
-            );   
-    }/**
+                'multiple' => true,]
+            );   */
+    }
+    /**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)

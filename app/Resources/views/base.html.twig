@@ -91,6 +91,7 @@
 <!-- AdminLTE for demo purposes -->
 <script src="{{ asset ('bundles/dist/js/demo.js') }}"></script>
 <script src="{{ asset ('node_modules/sweetalert/dist/sweetalert.min.js') }}"></script>
+<script>$('.carousel').carousel()</script>
 </head>
 
 <body class="home">
@@ -121,13 +122,35 @@
                 <li><a href="contact.html">Contact</a></li> 
 
                  {% if is_granted ('IS_AUTHENTICATED_REMEMBERED') %}
-                        <li class="dropdown">
+                        {#<li class="dropdown">
                             <a href="{{ path ('fos_user_profile_show') }}" class="dropdown-toggle" data-toggle="dropdown">{{ app.user.username }} <b class="caret"></b></a>
                               <ul class="dropdown-menu" role = "menu">
                                   <li><a href="{{ path ('fos_user_profile_show') }}">Profile</a></li>
                                   <li class="active"><a href="{{ path ('fos_user_security_logout') }}">Logout</a></li>
                               </ul>
-                         </li>
+                         </li>#}
+                         <li class="dropdown user user-menu">
+             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <img src="{{ asset ('bundles/dist/img/avatar2.png') }}" class="user-image" alt="User Image">
+              <span class="hidden-xs"> {{ app.user.username }} </span>
+            </a>
+            <ul class="dropdown-menu">
+
+              <li class="user-header">
+                <img src="{{ asset ('bundles/dist/img/avatar2.png') }}" class="img-circle" alt="User Image">
+                <br>
+                <p style="text-decoration-color: white"> {{ app.user.username }} </p>
+              </li>
+              <li class="user-footer">
+                <div class="pull-left">
+                  <a href="{{ path ('fos_user_profile_show') }}" class="btn btn-default btn-flat">Profile</a>
+                </div>
+                <div class="pull-right">
+                  <a href="{{ path ('fos_user_security_logout') }}" class="btn btn-default btn-flat">Logout</a>
+                </div>
+              </li>
+            </ul>
+          </li> 
                 {% else %}
                 <li><a class="btn" href="{{ path('fos_user_security_login') }}">SIGN IN </a></li>
                 <li><a class="btn" href="{{ path ('fos_user_registration_register') }}"><i class="fa fa-circle-o"></i> REGISTER</a></li>
@@ -142,8 +165,11 @@
 
                 {% else %}
                     {% if is_granted('ROLE_ADMIN') %}
-                    <li><a class="btn btn-success" href="{{ path ('pharmacie_new') }}"><i class="fa fa-circle-o"></i> Pharmacie</a></li>
-                    
+                       {% if app.user.pharmacie == NULL %}
+                    <li><a class="btn btn-primary" href="{{path ('pharmacie_new')}} "><i class="fa fa-circle-o"></i> Ajouter Votre Pharmacie</a></li>
+                       {% else %}
+                    <li><a class="btn btn-success" href="{{ path('pharmacie_show',{ 'id': app.user.pharmacie.id }) }}"><i class="fa fa-circle-o"></i>{{ app.user.pharmacie.nom }}</a></li>
+                       {% endif %}
                     {% else %}
                         {% if is_granted('ROLE_USER') %}
                     

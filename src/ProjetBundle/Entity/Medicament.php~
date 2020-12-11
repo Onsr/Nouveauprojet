@@ -74,7 +74,8 @@ class Medicament
     private $stock;
 
     /**
-     * @ORM\ManyToOne(targetEntity="ProjetBundle\Entity\Categorie",inversedBy="medicaments")
+     * @var array
+     * @ORM\ManyToOne(targetEntity="ProjetBundle\Entity\Categorie",inversedBy="medicaments", cascade={"persist", "remove"})
      * @ORM\JoinColumn(name="categorie",referencedColumnName="id")
      */
     private $categorie;
@@ -285,5 +286,46 @@ class Medicament
     public function getStock()
     {
         return $this->stock;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->commandes = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add commande
+     *
+     * @param \ProjetBundle\Entity\Commande $commande
+     *
+     * @return Medicament
+     */
+    public function addCommande(\ProjetBundle\Entity\Commande $commande)
+    {
+        $this->commandes[] = $commande;
+
+        return $this;
+    }
+
+    /**
+     * Remove commande
+     *
+     * @param \ProjetBundle\Entity\Commande $commande
+     */
+    public function removeCommande(\ProjetBundle\Entity\Commande $commande)
+    {
+        $this->commandes->removeElement($commande);
+    }
+
+    /**
+     * Get commandes
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCommandes()
+    {
+        return $this->commandes;
     }
 }

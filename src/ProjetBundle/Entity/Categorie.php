@@ -36,7 +36,7 @@ class Categorie
     private $description;
 
     /**
-     * @ORM\OneToMany(targetEntity="ProjetBundle\Entity\Medicament",mappedBy="categorie")
+     * @ORM\OneToMany(targetEntity="ProjetBundle\Entity\Medicament",mappedBy="categorie", cascade = {"persist"})
      */
     private $medicaments;
 
@@ -97,10 +97,10 @@ class Categorie
     public function addMedicament(\ProjetBundle\Entity\Medicament $medicament)
     {
         $this->medicaments[] = $medicament;
-
+        $medicament->setCategorie($this);
         return $this;
     }
-
+ 
     /**
      * Remove medicament
      *

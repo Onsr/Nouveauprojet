@@ -15,7 +15,6 @@
                     <div class="box-header with-border">
                         <h2 class="box-title"> <strong> <em> Modifier Les Informations &#58; {{ medicament.nom }} </em></strong></h2>
                     </div>
-    <form role="form">
     <div class="box-body">
     {{ form_start(edit_form) }}
             <div class="form-group">
@@ -31,25 +30,22 @@
                                 {{ form_widget(edit_form.prix) }}
             </div>
              <div class="form-group">
-                                <h4><i class="fa fa-pencil-square"> Médicament </i> </h4>
+                                <h4><i class="fa fa-pencil-square"> Image </i> </h4>
                                 {{ form_widget(edit_form.image) }}
             </div>
              <div class="form-group">
-                                <h4><i class="fa fa-pencil-square"> Médicament </i> </h4>
+                                <h4><i class="fa fa-pencil-square"> Date de fabrication </i> </h4>
                                 {{ form_widget(edit_form.dateFab) }}
             </div>
              <div class="form-group">
-                                <h4><i class="fa fa-pencil-square"> Médicament </i> </h4>
+                                <h4><i class="fa fa-pencil-square"> Date d'expiration </i> </h4>
                                 {{ form_widget(edit_form.dateExp) }}
             </div>
              <div class="form-group">
-                                <h4><i class="fa fa-pencil-square"> Médicament </i> </h4>
+                                <h4><i class="fa fa-pencil-square"> Stock </i> </h4>
                                 {{ form_widget(edit_form.stock) }}
             </div>
-             <div class="form-group">
-                                <h4><i class="fa fa-pencil-square"> Médicament </i> </h4>
-                                {{ form_widget(edit_form.categorie.nom) }}
-            </div>
+                {{ form_end(edit_form) }}
        <div class="box-footer">
                                 <a href="{{ path ('medicament_index') }}" class="btn btn-default"> Annuler</a>
                                 {{ form_start(delete_form) }}
@@ -59,9 +55,8 @@
                                 {{ form_end(delete_form) }}
                                 {{ form_widget(edit_form.Save) }}
                             </div>
-                            {{ form_end(edit_form) }}
+                        
                         </div>
-                    </form>
                 </div>
             </div>
         </div>

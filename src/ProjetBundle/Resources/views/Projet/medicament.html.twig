@@ -20,7 +20,8 @@
         <div class="col-lg-9">
 
           <div class="card mt-4">
-            <img class="card-img-top img-fluid" src="{{ asset(medicament.image) }}" alt="" style="width:12.5em">
+            <img  class="card-img-top img-fluid" src="{{ asset ('images/upload/' ~ medicament.image) }}" width="200" height="200"><br>
+
             <div class="card-body">
               <h3 class="card-title">{{ medicament.nom }}</h3>
               <h4>{{ medicament.prix }}DT</h4>

@@ -56,6 +56,14 @@
              */
             private $gouvernorat;
 
+            
+             /**    
+             * @ORM\OneToOne (targetEntity="ProjetBundle\Entity\Pharmacie")
+             * 
+             * 
+             */ 
+            private $pharmacie; 
+
             /**
              * @var int
              *
@@ -242,5 +250,29 @@
     public function getVille()
     {
         return $this->ville;
+    }
+
+    /**
+     * Set pharmacie
+     *
+     * @param \ProjetBundle\Entity\Pharmacie $pharmacie
+     *
+     * @return User
+     */
+    public function setPharmacie(\ProjetBundle\Entity\Pharmacie $pharmacie = null)
+    {
+        $this->pharmacie = $pharmacie;
+
+        return $this;
+    }
+
+    /**
+     * Get pharmacie
+     *
+     * @return \ProjetBundle\Entity\Pharmacie
+     */
+    public function getPharmacie()
+    {
+        return $this->pharmacie;
     }
 }

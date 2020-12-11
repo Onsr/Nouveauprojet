@@ -6,7 +6,8 @@ use ProjetBundle\Entity\Medicament;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
-
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
 /**
  * Medicament controller.
  *
@@ -44,10 +45,22 @@ class MedicamentController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+             /*upload image */
+            /**
+             * @var UploadedFile $file
+             *
+             */
+            $file = $medicament->getImage();
+            $fileName = md5(uniqid()).'.'.$file->guessExtension();
+            $file->move(
+                $this->getParameter('upload_directory'),$fileName);
+            $medicament->setImage($fileName);
+
             $em = $this->getDoctrine()->getManager();
             $em->persist($medicament);
             $em->flush();
 
+            $this->get('session')->getFlashBag()->add('succes'," bien ajouter Médicaments !");
             return $this->redirectToRoute('medicament_show', array('id' => $medicament->getId()));
         }
 
@@ -56,6 +69,7 @@ class MedicamentController extends Controller
             'form' => $form->createView(),
         ));
     }
+
 
     /**
      * Finds and displays a medicament entity.
@@ -80,15 +94,31 @@ class MedicamentController extends Controller
      * @Method({"GET", "POST"})
      */
     public function editAction(Request $request, Medicament $medicament)
+
     {
+        $e_image=$medicament->getImage();
+        $medicament->setImage(null);
+
         $deleteForm = $this->createDeleteForm($medicament);
         $editForm = $this->createForm('ProjetBundle\Form\MedicamentType', $medicament);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
+            if ($editForm['image']->getData()) {
+                /**
+                * @var UploadedFile $file
+                */
+            $file=$medicament->getImage();
+            $fileName = md5(uniqid()).'.'.$file->guessExtension();
+            $file->move(
+                $this->getParameter('upload_directory'),$fileName);
+            $medicament->setImage($fileName);
+            }
+            else {
+                $medicament->setImage($e_image);
+            }
             $this->getDoctrine()->getManager()->flush();
-
-            return $this->redirectToRoute('medicament_edit', array('id' => $medicament->getId()));
+            return $this->redirectToRoute('medicament_show', array('id' => $medicament->getId()));
         }
 
         return $this->render('medicament/edit.html.twig', array(

@@ -74,7 +74,8 @@ class Medicament
     private $stock;
 
     /**
-     * @ORM\ManyToOne(targetEntity="ProjetBundle\Entity\Categorie",inversedBy="medicaments")
+     * @var array
+     * @ORM\ManyToOne(targetEntity="ProjetBundle\Entity\Categorie",inversedBy="medicaments", cascade={"persist", "remove"})
      * @ORM\JoinColumn(name="categorie",referencedColumnName="id")
      */
     private $categorie;

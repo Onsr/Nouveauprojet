@@ -12,6 +12,8 @@ use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Doctrine\ORM\EntityRepository;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+
 
 
 
@@ -60,6 +62,13 @@ class PharmacieType extends AbstractType
         ->add('fax',TelType::class)
         ->add('mobile',TelType::class)
         ->add('email', EmailType::class)
+        ->add('categorie',CollectionType::class, [ 
+            'entry_type' => CategorieType::class,
+            'entry_options' =>['label' => false],
+            'allow_add' => true,
+            'allow_delete' => true,
+            'prototype' => true,
+            'by_reference' => false])
         ->add('Save',SubmitType::class,[
             'attr' => [
                 'class' =>

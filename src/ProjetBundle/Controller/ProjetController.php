@@ -37,7 +37,7 @@ class ProjetController extends Controller
       $medicament = $em->getRepository('ProjetBundle:Medicament')->find($id);
       $categories = $em->getRepository('ProjetBundle:Categorie')->findAll();
       return $this->render('ProjetBundle:Projet:medicament.html.twig',array(
-        'medicament' => $mesicament,
+        'medicament' => $medicament,
         'categories' => $categories,
       ));
     }

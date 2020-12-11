@@ -92,6 +92,11 @@ class Pharmacie
      */ 
     private $user; 
 
+    /**
+     * @ORM\ManyToMany(targetEntity="ProjetBundle\Entity\Categorie",cascade={"persist"})
+     */
+    private $categorie;
+
 
     /**
      * Get id
@@ -293,5 +298,46 @@ class Pharmacie
     public function getUser()
     {
         return $this->user;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->categorie = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add categorie
+     *
+     * @param \ProjetBundle\Entity\Categorie $categorie
+     *
+     * @return Pharmacie
+     */
+    public function addCategorie(\ProjetBundle\Entity\Categorie $categorie)
+    {
+        $this->categorie[] = $categorie;
+
+        return $this;
+    }
+
+    /**
+     * Remove categorie
+     *
+     * @param \ProjetBundle\Entity\Categorie $categorie
+     */
+    public function removeCategorie(\ProjetBundle\Entity\Categorie $categorie)
+    {
+        $this->categorie->removeElement($categorie);
+    }
+
+    /**
+     * Get categorie
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCategorie()
+    {
+        return $this->categorie;
     }
 }

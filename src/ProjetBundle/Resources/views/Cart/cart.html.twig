@@ -20,7 +20,7 @@
                     <tr>
                         <td class="col-sm-8 col-md-6">
                         <div class="media">
-                            <a class="thumbnail pull-left" href="{{ path('medicament_show',{'id':medicament.id}) }}"> <img class="media-object" src="{{ asset(medicament.image) }}" style="width: 72px; height: 72px;"> </a>
+                            <a class="thumbnail pull-left" href="{{ path('medicament_show',{'id':medicament.id}) }}"> <img class="media-object" src="{{ asset ('images/upload/' ~ medicament.image) }}"  width="200" height="200"> </a>
                             <div class="media-body">
                                 <h4 class="media-heading"><a href="{{ path('medicament_show',{'id':medicament.id}) }}">{{ medicament.nom }}</a></h4>
                                 

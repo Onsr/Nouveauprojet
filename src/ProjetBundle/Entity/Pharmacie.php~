@@ -92,6 +92,11 @@ class Pharmacie
      */ 
     private $user; 
 
+    /**
+     * @ORM\ManyToMany(targetEntity="ProjetBundle\Entity\Categorie",cascade={"persist"})
+     */
+    private $categorie;
+
 
     /**
      * Get id
