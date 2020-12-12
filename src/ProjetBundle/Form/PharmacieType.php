@@ -55,11 +55,11 @@ class PharmacieType extends AbstractType
                 'Tataouine' => 'Tataouine',
                 'Tozeur' => 'Tozeur',
                 'Tunis' => 'Tunis',
-                'Zaghouan' => 'Zaghouan',
+                'Zaghouan' => 'Zaghouan', 
             ],
         ])
         ->add('fixe',TelType::class)
-        ->add('fax',TelType::class)
+        ->add('fax',TelType::class) 
         ->add('mobile',TelType::class)
         ->add('email', EmailType::class)
         ->add('categorie',CollectionType::class, [ 

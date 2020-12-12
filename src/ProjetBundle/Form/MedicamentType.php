@@ -26,7 +26,7 @@ class MedicamentType extends AbstractType
         $builder->add('nom',TextType::class)
         ->add('description',TextType::class)
         ->add('prix',MoneyType::class)
-        ->add('image',FileType::class, ['label' => 'ajouter une image'])
+        ->add('image',FileType::class, ['label' => 'ajouter une image']) 
         ->add('stock',IntegerType::class)
         ->add('dateFab',DateType::class)
         ->add('dateExp',DateType::class)

@@ -71,7 +71,7 @@ class Medicament
      *
      * @ORM\Column(name="stock", type="integer")
      */
-    private $stock;
+    private $stock; 
 
     /**
      * @var array

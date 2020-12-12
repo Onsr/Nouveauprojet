@@ -15,7 +15,7 @@
                 <div class="card-body p-0">
                     <div class="row p-5">
                         <div class="col-md-6">
-                            <img src="http://via.placeholder.com/400x90?text=logo">
+                            <img <img src="{{ asset ('assets/images/logo12.png') }}">
                         </div>
                     </div>
 
@@ -28,10 +28,10 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th class="border-0 text-uppercase small font-weight-bold">ID</th>
-                                        <th class="border-0 text-uppercase small font-weight-bold">Nom</th>
+                                        <th class="border-0 text-uppercase small font-weight-bold"></th>
+                                        <th class="border-0 text-uppercase small font-weight-bold">Médicament</th>
                                         <th class="border-0 text-uppercase small font-weight-bold">Categorie</th>
-                                        <th class="border-0 text-uppercase small font-weight-bold">Quantity</th>
+                                        <th class="border-0 text-uppercase small font-weight-bold">Qantité</th>
                                         <th class="border-0 text-uppercase small font-weight-bold">Prix</th>
                                         <th class="border-0 text-uppercase small font-weight-bold">Total</th>
                                     </tr>
@@ -40,7 +40,7 @@
                                 {% set total = 0 %}
                                 {% for medicament in medicaments %}
                                     <tr>
-                                        <td>{{ medicament.id }}</td>
+                                        <td>{{ app.user.username }}</td>
                                         <td>{{ medicament.nom }}</td>
                                         <td>{{ medicament.getCategorie().nom }}</td>
                                         <td>{{ panier[medicament.id] }}</td>
@@ -57,24 +57,24 @@
                     {% set subTotal = total - ((total * discount) /100) %}
                     <div class="d-flex flex-row-reverse bg-dark text-white p-4">
                         <div class="py-3 px-5 text-right">
-                            <div class="mb-2">Grand Total</div>
+                            <div class="mb-2">Montant Total</div>
                             <div class="h2 font-weight-light">{{ subTotal|number_format }} DT</div>
                         </div>
 
                         <div class="py-3 px-5 text-right">
-                            <div class="mb-2">Discount</div>
+                            <div class="mb-2">Remise</div>
                             
                             <div class="h2 font-weight-light">{{ discount }}%</div>
                         </div>
 
                         <div class="py-3 px-5 text-right">
-                            <div class="mb-2">Sub - Total amount</div>
+                            <div class="mb-2">Sous - Montant Total</div>
                            
                             <div class="h2 font-weight-light">{{ total }} DT</div>
                         </div> 
                     </div>
                     <br>
-                    <a href="#" class="btn btn-success btn-lg">Place order</a>
+                    <a href="#" class="btn btn-success btn-lg">Passer la commande</a>
                 </div>
             </div>
         </div>

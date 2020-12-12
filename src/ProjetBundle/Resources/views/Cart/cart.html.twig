@@ -9,8 +9,8 @@
             <table class="table table-hover">
                 <thead>
                     <tr>
-                        <th>Product</th>
-                        <th>Quantity</th>
+                        <th>Produit</th>
+                        <th>Quantité</th>
                         <th class="text-center">Price</th>
                         <th> </th>
                     </tr>
@@ -42,19 +42,19 @@
                         <td>   </td>
                         <td>
                             <a href="/" class="btn btn-info">
-                                <span class="glyphicon glyphicon-shopping-cart"></span> Continue Shopping
+                                <span class="glyphicon glyphicon-shopping-cart"></span>Continuer vos achats
                             </a>
                         </td>
                         <td>
                             <td>
                              <a href="{{ path('projet_checkout') }}" class="btn btn-success">
-                                <span class="glyphicon glyphicon-shopping-cart"></span> Checkout
+                                <span class="glyphicon glyphicon-shopping-cart"></span> Valider
                             </a>
                         </td>
                         </td>
                         {% if panier|length >0 %}
                             <td>
-                                <a href="{{ path('projet_clear_cart') }}" class="btn btn-danger btn-xg">Clear cart</a> 
+                                <a href="{{ path('projet_clear_cart') }}" class="btn btn-danger btn-xg">Vider le panier</a> 
                             </td>
                         {% endif %}
                     </tr>

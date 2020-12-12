@@ -22,7 +22,7 @@ class CategorieType extends AbstractType
     {
         $builder->add('nom',TextType::class)
         ->add('description',TextType::class);
-        
+         
         /*->add('pharmacie',EntityType::class, [
                 'class' => 'ProjetBundle:Pharmacie',
                 'query_builder' => function (EntityRepository $er) {

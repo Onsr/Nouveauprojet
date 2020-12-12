@@ -78,7 +78,7 @@ class Pharmacie
      *      maxMessage = "Your first name cannot be longer than {{ limit }} characters")
      */
     private $mobile;
-
+ 
     /**
      * @var string
      *
@@ -317,7 +317,7 @@ class Pharmacie
     public function addCategorie(\ProjetBundle\Entity\Categorie $categorie)
     {
         $this->categorie[] = $categorie;
-
+        
         return $this;
     }
 

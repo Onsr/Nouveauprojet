@@ -65,3 +65,4 @@ projet_product_details:
 projet_products_by_categorie:
       path:     /categorie{id}
       defaults: { _controller: ProjetBundle:Projet:categorieProducts }
+

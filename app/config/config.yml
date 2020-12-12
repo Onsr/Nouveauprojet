@@ -100,4 +100,5 @@ fos_user:
     resetting:
         email:
             template:   '@FOSUser/Resetting/email.txt.twig'
+  
     

@@ -6,6 +6,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use ProjetBundle\Entity\Pharmacie;
+
 
 class ProjetController extends Controller
 {
@@ -23,11 +25,14 @@ class ProjetController extends Controller
     public function shopAction()
     {
         $em = $this->getDoctrine()->getEntityManager();
+        $pharmacies = $em->getRepository('ProjetBundle:Pharmacie')->findAll();
+
         $medicaments = $em->getRepository('ProjetBundle:Medicament')->findAll();
         $categories = $em->getRepository('ProjetBundle:Categorie')->findAll();
         return $this->render('ProjetBundle:Projet:shop.html.twig',array(
           'medicaments' => $medicaments,
-          'categories' => $categories
+          'categories' => $categories,
+          'pharmacie' => $pharmacies
         ));
     }
 
@@ -93,17 +98,22 @@ class ProjetController extends Controller
   
       }
   
+   
+      public function deleteCartAction($id, SessionInterface $session){
   
-      public function deleteCartAction($id,Request $request){
-  
-          $session = $request->getSession();
+         /* $session = $request->getSession();
           
           $panier = $session->get('panier');
   
           if(array_key_exists($id,$panier)){
             unset($panier[$id]);
             $session->set('panier',$panier);
+          }*/
+          $panier =$session ->get('panier', []);
+          if(!empty($panier[$id])){
+            unset($panier[$id]);
           }
+          $session->set('panier',$panier);
           return $this->redirect($this->generateUrl('projet_cart'));
       }
   

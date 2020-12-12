@@ -99,7 +99,7 @@ class Categorie
         $this->medicaments[] = $medicament;
         $medicament->setCategorie($this);
         return $this;
-    }
+    } 
  
     /**
      * Remove medicament
