@@ -63,7 +63,7 @@
 <div class="wrapper">
    <header class="main-header">
     <!-- Logo -->
-    <a href="index2.html" class="logo">
+    <a href="{{ path ('projet_homepage') }}" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>A</b>LT</span>
       <!-- logo for regular state and mobile devices -->
@@ -77,7 +77,7 @@
       
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
-           <li class="active"><a href="{{ path ('projet_accueil') }}">Acceuil</a></li>
+           <li class="active"><a href="{{ path ('projet_homepage') }}">Acceuil</a></li>
           <li class="dropdown user user-menu">
              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <img src="{{ asset ('bundles/dist/img/avatar2.png') }}" class="user-image" alt="User Image">
@@ -186,6 +186,8 @@
             <li><a href="{{path ('categorie_index')}} "><i class="fa fa-circle-o"></i> Liste des catégories</a></li>
             <li><a href="{{path ('medicament_index')}} "><i class="fa fa-circle-o"></i> Liste des médicaments </a></li>
             <li><a href="{{path ('medicament_new')}} "><i class="fa fa-circle-o"></i> Ajouter un Médicament </a></li>
+            <li><a  href="{{ path ('pharmacie_show',{ 'id': app.user.pharmacie.id }) }}"><i class="fa fa-circle-o"></i>{{ app.user.pharmacie.nom }}:<br> Ajouter Une Catégorie</a></li>
+           
           </ul>
         
         </li>

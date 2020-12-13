@@ -17,13 +17,26 @@
   </style>
 </head>
 <!-- Page Content -->
+<div class="pull-right">
+          <form action="search" method="get" class="form-inline">
+            <div class="input-group">
+              <input type="text" name="search" class="form-control" id="myInput" onkeyup="myFunction()" placeholder="Je cherche...">
+              <div class="input-group-btn">
+                <button type="submit" class="btn btn-info"><span class="fa fa-search"></span>
+                  Chercher
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+ 
   <div class="container">
     <div class="row">
       <div class="col-lg-3">
         <h1 class="my-4 " style="color: #00c19f;">Les Pharmacies</h1>
-        <div class="list-group">
+        <div  class="list-group">
         {% for pharmacies in pharmacie %}
-            <a href="{{ path ('projet_products_by_categorie',{'id':pharmacies.id}) }}" class="list-group-item"><h3>{{ pharmacies.gouvernorat}}:{{ pharmacies.nom}}</h3></a>
+            <a href="{{ path ('projet_products_by_categorie',{'id':pharmacies.id}) }}" class="list-group-item"><h3 style="color:red;">{{ pharmacies.gouvernorat}}</h3> : <h4>{{ pharmacies.nom}}</h4></a>
         {% endfor %}
         </div>
 
