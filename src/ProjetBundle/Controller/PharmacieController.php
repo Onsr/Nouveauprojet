@@ -88,7 +88,7 @@ class PharmacieController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('pharmacie_edit', array('id' => $pharmacie->getId()));
+            return $this->redirectToRoute('pharmacie_show', array('id' => $pharmacie->getId()));
         }
 
         return $this->render('pharmacie/edit.html.twig', array(
@@ -114,7 +114,6 @@ class PharmacieController extends Controller
             $em->remove($pharmacie);
             $em->flush();
         }
-
         return $this->redirectToRoute('pharmacie_index');
     }
 

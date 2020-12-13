@@ -47,7 +47,7 @@ projet_add_cart:
       defaults: { _controller: ProjetBundle:Projet:addCart }
 
 projet_delete_cart:
-      path:     /delete{id}
+      path:     /cart/delete{id}
       defaults: { _controller: ProjetBundle:Projet:deleteCart }
 
 projet_clear_cart:

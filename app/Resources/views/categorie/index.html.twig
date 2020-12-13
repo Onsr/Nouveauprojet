@@ -26,7 +26,7 @@
                 <td><a href="{{ path('categorie_show', { 'id': categorie.id }) }}">{{ categorie.id }}</a></td>
                 <td>{{ categorie.nom }}</td>
                 <td>
-                    <div class="margin">
+                   {# <div class="margin">
                                         <div class="btn-group">
                                             <a href="{{ path('categorie_show', { 'id': categorie.id }) }}" class="pull-left btn  btn-primary btn-sm">
                                                 <i class="fa fa-sticky-note-o"></i> Afficher
@@ -36,8 +36,45 @@
                                                 <i class="fa  fa-pencil-square-o"></i> Modifier
                                             </a>
                                         </div>
-                                    </div>
-                                </td>
+                                    </div>#}
+                                    <div class="margin">
+                                                <div class="btn-group">
+                                                    {#pop upp affichage #}
+                                                    <button type="button" class="pull-left btn  btn-primary btn-sm" data-toggle="modal" data-target="#myModal{{ categorie.id }}">  <i class="fa fa-sticky-note-o"></i> Afficher </button>
+                                                    <div class="modal fade" id="myModal{{ categorie.id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog">
+                                                            <br><br><br><br>
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                                    <h4 class="modal-title" id="myModalLabel"> les Informations de  : {{ categorie.nom }}</h4>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <div class="row">
+                                                                        <div class="col-lg-6">
+                                                                            <ul>
+                                                                                <li><strong>Description :</strong> {{ categorie.description }}</li><br>
+                                                            
+                                                                            </ul>
+                                                                        </div>
+                                                                        <div class="col-lg-6">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    {#endpop up affichage#}
+                                                    <br>
+                                                     <a href="{{ path('categorie_edit', { 'id': categorie.id }) }}" class="pull-right btn btn-warning  btn-sm">
+                                                        <i class="fa  fa-pencil-square-o"></i> Modifier
+                                                    </a>
+                                                     </div>
+                                            </div>
+                                </td> 
                             </tr>
                         {% endfor %}
                         </tbody>

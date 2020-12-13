@@ -86,16 +86,17 @@ class Pharmacie
      */
     private $email;
 
-    /**    
-     * @ORM\OneToOne (targetEntity="AppBundle\Entity\User", cascade={"persist"}) 
-     * 
-     */ 
-    private $user; 
-
     /**
-     * @ORM\ManyToMany(targetEntity="ProjetBundle\Entity\Categorie",cascade={"persist"})
+     * @ORM\ManyToMany(targetEntity="ProjetBundle\Entity\Categorie",cascade={"persist", "remove"})
      */
     private $categorie;
+
+     /**    
+      * @ORM\OneToOne (targetEntity="AppBundle\Entity\User", cascade={"persist", "remove"})
+      * @ORM\JoinColumn(name="user",referencedColumnName="id")
+      * 
+    */ 
+    private $user; 
 
 
     /**
@@ -276,29 +277,7 @@ class Pharmacie
         return $this->email;
     }
 
-    /**
-     * Set user
-     *
-     * @param \AppBundle\Entity\User $user
-     *
-     * @return Pharmacie
-     */
-    public function setUser(\AppBundle\Entity\User $user)
-    {
-        $this->user = $user;
-
-        return $this;
-    }
-
-    /**
-     * Get user
-     *
-     * @return \AppBundle\Entity\User
-     */
-    public function getUser()
-    {
-        return $this->user;
-    }
+    
     /**
      * Constructor
      */
@@ -339,5 +318,29 @@ class Pharmacie
     public function getCategorie()
     {
         return $this->categorie;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \AppBundle\Entity\User $user
+     *
+     * @return Pharmacie
+     */
+    public function setUser(\AppBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \AppBundle\Entity\User
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 }

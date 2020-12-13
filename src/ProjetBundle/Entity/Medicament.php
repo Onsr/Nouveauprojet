@@ -76,7 +76,7 @@ class Medicament
     /**
      * @var array
      * @ORM\ManyToOne(targetEntity="ProjetBundle\Entity\Categorie",inversedBy="medicaments", cascade={"persist", "remove"})
-     * @ORM\JoinColumn(name="categorie",referencedColumnName="id")
+     * @ORM\JoinColumn(name="categorie",referencedColumnName="id", onDelete="cascade")
      */
     private $categorie;
     
@@ -287,7 +287,7 @@ class Medicament
     {
         return $this->stock;
     }
-    /**
+    /** 
      * Constructor
      */
     public function __construct()

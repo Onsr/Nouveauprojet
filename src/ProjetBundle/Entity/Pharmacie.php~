@@ -78,7 +78,7 @@ class Pharmacie
      *      maxMessage = "Your first name cannot be longer than {{ limit }} characters")
      */
     private $mobile;
-
+ 
     /**
      * @var string
      *
@@ -86,16 +86,17 @@ class Pharmacie
      */
     private $email;
 
-    /**    
-     * @ORM\OneToOne (targetEntity="AppBundle\Entity\User", cascade={"persist"}) 
-     * 
-     */ 
-    private $user; 
-
     /**
-     * @ORM\ManyToMany(targetEntity="ProjetBundle\Entity\Categorie",cascade={"persist"})
+     * @ORM\ManyToMany(targetEntity="ProjetBundle\Entity\Categorie",cascade={"persist", "remove"})
      */
     private $categorie;
+
+     /**    
+      * @ORM\OneToOne (targetEntity="AppBundle\Entity\User", cascade={"persist", "remove"})
+      * @ORM\JoinColumn(name="user",referencedColumnName="id")
+      * 
+    */ 
+    private $user; 
 
 
     /**
@@ -276,27 +277,46 @@ class Pharmacie
         return $this->email;
     }
 
+    
     /**
-     * Set user
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->categorie = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add categorie
      *
-     * @param \AppBundle\Entity\User $user
+     * @param \ProjetBundle\Entity\Categorie $categorie
      *
      * @return Pharmacie
      */
-    public function setUser(\AppBundle\Entity\User $user)
+    public function addCategorie(\ProjetBundle\Entity\Categorie $categorie)
     {
-        $this->user = $user;
-
+        $this->categorie[] = $categorie;
+        
         return $this;
     }
 
     /**
-     * Get user
+     * Remove categorie
      *
-     * @return \AppBundle\Entity\User
+     * @param \ProjetBundle\Entity\Categorie $categorie
      */
-    public function getUser()
+    public function removeCategorie(\ProjetBundle\Entity\Categorie $categorie)
     {
-        return $this->user;
+        $this->categorie->removeElement($categorie);
+    }
+
+    /**
+     * Get categorie
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCategorie()
+    {
+        return $this->categorie;
     }
 }

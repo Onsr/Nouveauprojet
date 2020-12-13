@@ -18,8 +18,8 @@
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap-theme.css') }}" media="screen" >
     <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
     
-<!-- jQuery 3 -->
-<script src="{{ asset ('bundles/bower_components/jquery/dist/jquery.min.js') }}"
+  <!-- jQuery 3 -->
+ <script src="{{ asset ('bundles/bower_components/jquery/dist/jquery.min.js') }}"
  crossorigin="anonymous"></script>
  <script src="{{ asset ('bundles/bower_components/jquery/dist/jquery.js') }}"></script>
  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
@@ -28,8 +28,8 @@
 
 
     
-<link rel="stylesheet" href="{{ asset('node_modules/bootstrap/scss') }}">
-<link rel="shortcut icon" href="{{ asset('assets/images/gt_favicon.png') }}">
+ <link rel="stylesheet" href="{{ asset('node_modules/bootstrap/scss') }}">
+ <link rel="shortcut icon" href="{{ asset('assets/images/gt_favicon.png') }}">
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -111,46 +111,26 @@
         
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav pull-right">
+
                 <li class="active"><a href="{{ path ('homepage') }}">Acceuil</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">More Pages <b class="caret"></b></a>
+                <li class="dropdown" >
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="position:relative;">More Pages <b class="caret"></b></a>
                     <ul class="dropdown-menu" role = "menu">
                         <li><a  class="dropdown-item" href="#">Left Sidebar</a></li>
                         <li class="active"><a  class="dropdown-item" href="#">Right Sidebar</a></li>
                     </ul>
                 </li>
+                
                 <li><a href="contact.html">Contact</a></li> 
 
                  {% if is_granted ('IS_AUTHENTICATED_REMEMBERED') %}
-                        {#<li class="dropdown">
-                            <a href="{{ path ('fos_user_profile_show') }}" class="dropdown-toggle" data-toggle="dropdown">{{ app.user.username }} <b class="caret"></b></a>
-                              <ul class="dropdown-menu" role = "menu">
+                         <li>
+                            <a href="{{ path ('fos_user_profile_show') }}" >{{ app.user.username }} <b class="caret"></b></a>
+                              <ul>
                                   <li><a href="{{ path ('fos_user_profile_show') }}">Profile</a></li>
                                   <li class="active"><a href="{{ path ('fos_user_security_logout') }}">Logout</a></li>
                               </ul>
-                         </li>#}
-                         <li class="dropdown user user-menu">
-             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="{{ asset ('bundles/dist/img/avatar2.png') }}" class="user-image" alt="User Image">
-              <span class="hidden-xs"> {{ app.user.username }} </span>
-            </a>
-            <ul class="dropdown-menu">
-
-              <li class="user-header">
-                <img src="{{ asset ('bundles/dist/img/avatar2.png') }}" class="img-circle" alt="User Image">
-                <br>
-                <p style="text-decoration-color: white"> {{ app.user.username }} </p>
-              </li>
-              <li class="user-footer">
-                <div class="pull-left">
-                  <a href="{{ path ('fos_user_profile_show') }}" class="btn btn-default btn-flat">Profile</a>
-                </div>
-                <div class="pull-right">
-                  <a href="{{ path ('fos_user_security_logout') }}" class="btn btn-default btn-flat">Logout</a>
-                </div>
-              </li>
-            </ul>
-          </li> 
+                         </li>
                 {% else %}
                 <li><a class="btn" href="{{ path('fos_user_security_login') }}">SIGN IN </a></li>
                 <li><a class="btn" href="{{ path ('fos_user_registration_register') }}"><i class="fa fa-circle-o"></i> REGISTER</a></li>
@@ -168,7 +148,7 @@
                        {% if app.user.pharmacie == NULL %}
                     <li><a class="btn btn-primary" href="{{path ('pharmacie_new')}} "><i class="fa fa-circle-o"></i> Ajouter Votre Pharmacie</a></li>
                        {% else %}
-                    <li><a class="btn btn-success" href="{{ path('pharmacie_show',{ 'id': app.user.pharmacie.id }) }}"><i class="fa fa-circle-o"></i>{{ app.user.pharmacie.nom }}</a></li>
+                    <li><a class="btn btn-success" href="{{ path ('pharmacie_show',{ 'id': app.user.pharmacie.id }) }}"><i class="fa fa-circle-o"></i>{{ app.user.pharmacie.nom }}</a></li>
                        {% endif %}
                     {% else %}
                         {% if is_granted('ROLE_USER') %}
@@ -177,7 +157,7 @@
                         {% endif %}
                     {% endif %}
                 {% endif %}
-                
+                <li class="active"><a>Réaliser Par Ons Riahi et Mehdi Gargouri</a></li>
             </ul>
         </div>
         <!--/.nav-collapse -->
@@ -191,7 +171,7 @@
         <div class="row">
             <h4 class="lead" style="color:red" face="Times New Roman" size="7"><b>TakeCare</b> </h4>
             <p class="tagline" style="color:black"><b>Take Care, la plateforme qui livre vos médicaments gratuitement pendant la crise sanitaire <p style="color:red">&#40;C &#46; O &#46; V &#46; I &#46; D&#41; </p></b></p>
-            <p> <a class="btn btn-action btn-lg" role="button" style="color:chocolate">MORE INFO</a></p>
+            <p> <a class="btn btn-action btn-lg" role="button" style="color:chocolate" href={{ path ('pm_conseil') }}>MORE CONSEILS</a></p>
         </div>
     </div>
 </header>

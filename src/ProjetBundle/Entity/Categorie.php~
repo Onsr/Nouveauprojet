@@ -41,7 +41,7 @@ class Categorie
     private $medicaments;
 
     /**
-     * @ORM\ManyToMany(targetEntity="ProjetBundle\Entity\Pharmacie",cascade={"persist"})
+     * @ORM\ManyToMany(targetEntity="ProjetBundle\Entity\Pharmacie",cascade={"persist", "remove"})
      */
     private $pharmacie;
 
@@ -99,7 +99,7 @@ class Categorie
         $this->medicaments[] = $medicament;
         $medicament->setCategorie($this);
         return $this;
-    }
+    } 
  
     /**
      * Remove medicament
@@ -158,7 +158,7 @@ class Categorie
 
         return $this;
     }
-
+ 
     /**
      * Remove pharmacie
      *

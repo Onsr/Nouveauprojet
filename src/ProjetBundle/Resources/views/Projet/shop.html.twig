@@ -66,7 +66,7 @@
               </div>
 <br><br><br><br>
         <div class="row">
-        {% for medicament in medicaments %}
+        {% for medicament in medicaments %} 
           <div class="col-lg-4 col-md-6 mb-4">
             <div class="card h-100">
               <a href="{{ path ('projet_product_details',{'id':medicament.id}) }}">
@@ -80,7 +80,7 @@
               </div>
               {% if medicament.stock >0 %}
               <div class="card-footer">
-                <a href="{{ path ('projet_add_cart',{'id':medicament.id}) }}" class="btn btn-primary btn-xg">Ajouter au panier</a>
+                <a href="{{ path ('projet_add_cart',{'id':medicament.id}) }}" class="btn btn-primary glyphicon glyphicon-shopping-cart">Ajouter au panier</a>
               </div>
               {% elseif medicament.stock == 0 %}
                     <span class="alert alert-danger text-center"><strong>Repture en stock</strong></span>

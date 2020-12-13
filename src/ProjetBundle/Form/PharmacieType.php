@@ -27,7 +27,7 @@ class PharmacieType extends AbstractType
     {
         $builder->add('user',EntityType::class,[
         'class' => 'AppBundle:User',
-        'choice_label' => 'username'])
+        'choice_label' => 'username',])
         ->add('nom',TextType::class)
         ->add('adresse',TextType::class)
         ->add('gouvernorat',ChoiceType::class, [

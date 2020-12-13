@@ -10,7 +10,7 @@
 
       <div class="col-lg-3">
 
-        <h1 class="my-4">Shop Name</h1>
+        <h1 class="my-4 " style="color: #00c19f;">Les Catégories Disponibles</h1>
         <div class="list-group">
         {% for categorie in categories %}
             <a href="{{ path ('projet_products_by_categorie',{'id':categorie.id}) }}" class="list-group-item {% if categorie == categorieAc %}active{% endif %}">{{ categorie.nom }}</a>
@@ -36,9 +36,14 @@
                 <h5>{{ medicament.prix }}DT</h5>
                 <p class="card-text">{{ medicament.description }}</p>
               </div>
+               {% if medicament.stock >0 %}
               <div class="card-footer">
-                <a href="#" class="btn btn-primary btn-xg">Ajouter au panier <a>
+                <a href="{{ path ('projet_add_cart',{'id':medicament.id}) }}" class="glyphicon glyphicon-shopping-cart">Ajouter au panier</a>
               </div>
+              {% elseif medicament.stock == 0 %}
+                    <span class="alert alert-danger text-center"><strong>Repture en stock</strong></span>
+              {% endif %}
+             
             </div>
           </div>
           {% endfor %}

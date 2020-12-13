@@ -58,8 +58,8 @@
 
             
              /**    
-             * @ORM\OneToOne (targetEntity="ProjetBundle\Entity\Pharmacie")
-             * 
+             * @ORM\OneToOne (targetEntity="ProjetBundle\Entity\Pharmacie", cascade={"persist"})
+             * @ORM\JoinColumn(name="pharmacie",referencedColumnName="id")
              * 
              */ 
             private $pharmacie; 

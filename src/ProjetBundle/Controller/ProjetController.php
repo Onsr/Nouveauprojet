@@ -99,21 +99,21 @@ class ProjetController extends Controller
       }
   
    
-      public function deleteCartAction($id, SessionInterface $session){
+      public function deleteCartAction($id,Request $request){
   
-         /* $session = $request->getSession();
+          $session = $request->getSession();
           
           $panier = $session->get('panier');
   
           if(array_key_exists($id,$panier)){
             unset($panier[$id]);
             $session->set('panier',$panier);
-          }*/
-          $panier =$session ->get('panier', []);
+          }
+          /*$panier =$session ->get('panier', []);
           if(!empty($panier[$id])){
             unset($panier[$id]);
           }
-          $session->set('panier',$panier);
+          $session->set('panier',$panier);*/
           return $this->redirect($this->generateUrl('projet_cart'));
       }
   

@@ -23,8 +23,8 @@ class RegistrationType extends AbstractType
         $builder->add('mobile',TelType::class);
         $builder->add('sexe',ChoiceType::class,[
             'choices' => [
-                'Femme' => false,
-                'Homme' => false,
+                'Femme' => 'Femme',
+                'Homme' => 'Homme',
             ],
             'expanded' => true,
             'multiple' => false
@@ -69,14 +69,14 @@ class RegistrationType extends AbstractType
             'choices' =>
                 array
                 (       
-                    'ADMIN' => 'ROLE_SUPER_ADMIN',
+                   /* 'ADMIN' => 'ROLE_SUPER_ADMIN',*/
                     'Pharmacie'       => 'ROLE_ADMIN',
                     'Client'   => 'ROLE_User',
                     
                 ) ,
-            'expanded' => false,
+            'expanded' => true,
             'multiple' => true,
-            'required' => false,
+            'required' => true,
         ) 
     );
     }
